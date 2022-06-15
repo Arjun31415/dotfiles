@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Name=Assignments Conky
+Comment=Assignments from lms
+Exec=sleep 30 && /home/arjun/myConky/assignments_start.sh
+Type=Application
+Terminal=false
+Hidden=false
+

@@ -1,0 +1,20 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Comment[en_IN]=custom Conky showing system details
+Comment=custom Conky showing system details
+Exec=sleep 20 && /home/arjun/myConky/conky_start.sh
+GenericName[en_IN]=
+GenericName=
+Hidden=false
+MimeType=
+Name[en_IN]=MyConky
+Name=MyConky
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=
+X-DBUS-StartupType=
+X-KDE-SubstituteUID=false
+X-KDE-Username=
