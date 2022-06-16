@@ -82,6 +82,7 @@ exec blueberry-tray
 exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
 # Hide the polybar window
 # exec --no-startup-id hideIt.sh -C '^Polybar$' --hover -d bottom
+exec --no-startup-id hideIt.sh --name 'Polybar tray window' --region 1920x0+-100+100 -d top --interval 1
 # hide/unhide i3status bar
 bindsym $super+m bar mode toggle
 
@@ -301,9 +302,9 @@ for_window [class=URxvt|firedragon|Geany|Evince|Soffice|libreoffice*|mpv|Ghb|Xfb
 for_window [class=Xfburn|GParted|System-config-printer.py|Lxtask|Pavucontrol|Exo-helper*|Lxrandr|Arandr] focus
 
 # colour of border, background, text, indicator, and child_border
-client.focused              #bf616a #2f343f #d8dee8 #bf616a #d8dee8
-client.focused_inactive     #2f343f #2f343f #d8dee8 #2f343f #2f343f
-client.unfocused            #2f343f #2f343f #d8dee8 #2f343f #2f343f
+client.focused              #bf616a #FB6396 #FB6396 #bf616a #7a525f
+client.focused_inactive     #6EC1D6 #6EC1D6 #6EC1D6 #6EC1D6 #526170
+client.unfocused            #6EC1D6 #2f343f #d8dee8 #2f343f #2f343f
 client.urgent               #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.placeholder          #2f343f #2f343f #d8dee8 #2f343f #2f343f
 client.background           #2f343f
@@ -315,8 +316,8 @@ client.background           #2f343f
 #############################
 
 # Set inner/outer gaps
-gaps inner 8
-gaps bottom 1
+gaps inner 4
+gaps bottom 0
 # gaps bottom 40
 gaps top 2
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
