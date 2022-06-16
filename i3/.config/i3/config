@@ -81,7 +81,7 @@ exec_always --no-startup-id numlockx on
 exec blueberry-tray
 exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
 # Hide the polybar window
-exec --no-startup-id hideIt.sh -C '^Polybar$' --hover -d bottom
+# exec --no-startup-id hideIt.sh -C '^Polybar$' --hover -d bottom
 # hide/unhide i3status bar
 bindsym $super+m bar mode toggle
 
@@ -316,8 +316,9 @@ client.background           #2f343f
 
 # Set inner/outer gaps
 gaps inner 8
+gaps bottom 1
 # gaps bottom 40
-gaps top 10
+gaps top 2
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
 # gaps inner all set 10
