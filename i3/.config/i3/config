@@ -19,7 +19,7 @@ set $ws2 2
 ### Wallpaper: ###
 # - You need to specify homescreen wallpaper using azote
 
-set $lockScreenWallpaper /usr/share/wallpapers/garuda-wallpapers/Garuda-Desert.png
+# set $lockScreenWallpaper /usr/share/wallpapers/garuda-wallpapers/Garuda-Desert.png
 
 ### Applications: ###
 set $TERMINAL /usr/bin/kitty
@@ -58,13 +58,15 @@ font pango: source code pro 10
 floating_modifier $super
 
 #autostart
+# exec --no-startup-id /usr/bin/i3-autodisplay
 exec --no-startup-id /usr/bin/picom &
-exec --no-startup-id ~/.fehbg
-exec --no-startup-id xsettingsd &
+# exec --no-startup-id xsettingsd &
+exec --no-startup-id ~/.fehbg &
 #exec --no-startup-id pasystray
 exec_always --no-startup-id autotiling
-exec --no-startup-id conky
-exec --no-startup-id conky -c ~/.config/conky/conky-shcts
+# exec --no-startup-id conky
+# exec --no-startup-id conky -c ~/.config/conky/conky-shcts
+exec --no-startup-id ~/myConky/conky_start.sh
 exec --no-startup-id copyq
 exec --no-startup-id dunst
 exec --no-startup-id dex -a -s /etc/xdg/autostart/:~/.config/autostart/
@@ -82,13 +84,9 @@ exec blueberry-tray
 exec --no-startup-id java -Xmx1024m -jar "/opt/xdman/xdman.jar" -m
 # Hide the polybar window
 # exec --no-startup-id hideIt.sh -C '^Polybar$' --hover -d bottom
-exec --no-startup-id hideIt.sh --name 'Polybar tray window' --region 1920x0+-100+100 -d top --interval 1
+exec --no-startup-id sleep 10 && hideIt.sh --name 'Polybar tray window' --region 1920x0+-100+100 -d top --interval 1
 # hide/unhide i3status bar
-bindsym $super+m bar mode toggle
-
-# start dmenu (a program launcher)
-bindsym $super+Shift+d exec i3-dmenu-desktop --dmenu="dmenu -i -fn 'Noto Sans:size=20'"
-
+# bindsym $super+m bar mode toggle
 # start rofi (a program launcher) change modus Ctrl + Tab
 bindsym $super+d exec rofi -show run
 bindsym $super+e exec rofi -show emoji
