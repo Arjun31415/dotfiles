@@ -57,7 +57,7 @@ font pango: source code pro 10
 # Use Mouse+$super to drag floating windows to their wanted position
 floating_modifier $super
 
-#autostart
+# autostart
 # exec --no-startup-id /usr/bin/i3-autodisplay
 exec --no-startup-id /usr/bin/picom &
 # exec --no-startup-id xsettingsd &
@@ -96,7 +96,7 @@ bindsym $super+$alt+c exec rofi -show calc
 bindsym $super+i exec sudo -E calamares
 
 # Lock screen
-bindsym $super+Shift+l ock -i $lockScreenWallpaper
+bindsym $super+Shift+l lock -i $lockScreenWallpaper
 
 # Screen brightness controls
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
