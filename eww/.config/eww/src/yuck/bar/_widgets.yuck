@@ -5,13 +5,13 @@
     :halign "center"
     (button
       :class "launcher-btn"
-      :onclick "$HOME/.config/eww/scripts/appMenu.sh")
-    ""))
+      :onclick "$HOME/.config/eww/scripts/appMenu.sh"
+    "")))
 
 (defwidget workspaces []
   (literal :content workspace))
 (deflisten workspace "scripts/getWorkspaces")
-
+(defpoll tempColor :interval "500ms" "scripts/getCpuTemp color")
 (defwidget apps []
   (box :class "apps"
     :orientation "h"
@@ -19,11 +19,11 @@
     :halign "center"
     (button :class "settings-btn"
       :onclick "/usr/bin/lxappearance &"
-      :onrightclick "/usr/bin/xfce4-settings-manager &")
-    "漣"
+      :onrightclick "/usr/bin/xfce4-settings-manager &"
+    "漣")
     (button :class "comic-btn"
-      :onclick "~/.config/polybar/amarena/scripts/comics.sh &")
-    ""))
+      :onclick "~/.config/polybar/amarena/scripts/comics.sh &"
+    "")))
 
 (defwidget action-center []
   (box :class "action-center"
@@ -41,59 +41,60 @@
     :valign"center"
     (button
       :class "time-hour"
-      :onclick "sh scripts/openCalendar.sh")
-    hour
+      :onclick "sh scripts/openCalendar.sh"
+    hour)
     (label :class "time-sep" :text ":")
     (button :class "time-min"
-      :onclick "sh scripts/openCalendar.sh")
-    minute))
+      :onclick "sh scripts/openCalendar.sh"
+    minute)))
 
 (defwidget metric [icon ?font-size]
   (box :class "metric"
     :orientation "v"
     (label :class "metric-icon"
-      :style {font-size != "" ? "font-size: ${font-size}rem;" : ""})
-    :text icon
+      :style {font-size != "" ? "font-size: ${font-size}rem;" : ""}
+    :text icon)
     (children)))
 
 (defwidget battery []
   (box :class "battery"
     :orientation "h"
     :space-evenly "false"
-    (label  :text "${battery_icon}  ${battery_capacity}")
-    :class "${EWW_BATTERY["BAT0"]["status"]}"))
-
+    (label  :text "${battery_icon}  ${battery_capacity}"
+    :class "${EWW_BATTERY["BAT0"]["status"]}")))
+(defwidget temperature []
+  (box :class "temperature"
+  (label :class "cpu_temp_icon" :style "color:${tempColor};" :text "${cpu_temperature_icon}")
+  (label :class "cpu_temp_value" :style "color:${tempColor};" :text "${cpu_temperature}")
+  ))
 (defwidget separator [text]
   (box :orientation "h"
-    (label :class "separator")
-    :text text))
-
+    (label :class "separator" :text text)))
 
 (defwidget cal []
-  (revealer :transition "crossfade" :duration "250ms" :reveal call
-    (box :class "cal-window"
-      :orientation"v"
-      (box :class "cal-box"
-        :orientation "v"
-        :space-evenly "false"
-        (label :class "month-year" :text month_year)
-        (box :class "day-names" :orientation "h" :space-evenly "true"
-          (label :text "Su")
-          (label :text "Mo")
-          (label :text "Tu")
-          (label :text "We")
-          (label :text "Th")
-          (label :text "Fr")
-          (label :text "Sa"))
-        (calendar :class "cal"
-          :show-details "false"
-          :show-heading "false"
-          :show-day-names "false"
-          :day "calendar_day"
-          :month "calendar_month")
-        :year "calendar_year"))))
-
-
+	(revealer :transition "crossfade" :duration "250ms" :reveal call
+		(box :class "cal-window"
+			:orientation "v"
+			(box :class "cal-box"
+				:orientation "v"
+				:space-evenly "false"
+				(label :class "month-year" :text month_year)
+				(box :class "day-names" :orientation "h" :space-evenly "true"
+					(label :text "Su")
+					(label :text "Mo")
+					(label :text "Tu")
+					(label :text "We")
+					(label :text "Th")
+					(label :text "Fr")
+					(label :text "Sa")
+				)
+				(calendar :class "cal" 
+					:show-details false :show-heading false :show-day-names false
+					:day calendar_day :month calendar_month :year calendar_year)
+			)
+		)
+	)
+)
 (defvar call false)
 
 ;;BAR IS SEPARATED INTO THREE PARTS:TOP,CENTER AND BOTTOM
@@ -111,6 +112,7 @@
 ;;BOTTOM WIDGETS
 (defwidget bottom []
   (box :orientation "h" :space-evenly "false" :halign "end"
+    (temperature)
     (battery)
     (separator :text "‏‏‏‏ ‏‏‏‏ ‏")
     (action-center)))

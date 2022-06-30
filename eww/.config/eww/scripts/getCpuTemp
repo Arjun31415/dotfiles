@@ -1,32 +1,39 @@
 #!/bin/bash
 temp=$(cat /sys/devices/virtual/thermal/thermal_zone0/hwmon1/temp1_input)
-declare -A tempIcons=([0]="" [0.25]="" [0.50]="" [0.75]="" [1.00]="")
-
+# divide temp by 1000
+temp=$(($temp / 1000))
+declare -a tempIcons=(
+    #0   1   2   3   4
+    "" "" "" "" ""
+    "" "" "" "" ""
+    "" "" "" "" ""
+    "" "" "" "" ""
+    ""
+)
+declare -a tempColors=(
+    #    0       1         2         3        4
+    "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E"
+    "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E"
+    "#7FE4D2" "#7FE4D2" "#7FE4D2" "#FB6396" "#FB6396"
+    "#FB6396" "#FB6396" "#F92D72" "#F92D72" "#F92D72"
+    "#F92D72"
+)
 case $1 in
 "icon")
-    if [[ $(cat /sys/class/power_supply/BAT0/status) == "Charging" ]]; then
-        echo "${battery_charging[$idx]}"
-        # increment idx by 0.25
-        idx=$(calc $idx + 0.25)
-        # if idx is more than 1 then reset to 0
-        if [[ $(bc <<<"$idx > 1.00") -eq 1 ]]; then
-            idx=0
-        fi
-        # echo $key
-        eww update batteryIconIndex=$idx
-    elif [[ $(cat /sys/class/power_supply/BAT0/status) == "Full" ]]; then
-        echo " Full"
+    if [[ $temp -gt 100 ]]; then
+        echo "${tempIcons[9]}"
+
     else
-        echo "${battery_discharging[$idx]}"
-        idx=$(calc $idx + 0.25)
-        # if idx is more than 1 then reset to 0
-        if [[ $(bc <<<"$idx > 1.00") -eq 1 ]]; then
-            idx=0
-        fi
-        eww update batteryIconIndex=$idx
+        idx=$(($temp / 5))
+        # echo $idx
+        echo "${tempIcons[$idx]}"
     fi
     ;;
 "temp")
-    echo $temp
+    echo "$temp°C"
+    ;;
+"color")
+    idx=$(($temp / 5))
+    echo "${tempColors[$idx]}"
     ;;
 esac

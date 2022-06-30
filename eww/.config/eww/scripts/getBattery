@@ -19,7 +19,7 @@ case $1 in
         # echo $key
         eww update batteryIconIndex=$idx
     elif [[ $(cat /sys/class/power_supply/BAT0/status) == "Full" ]]; then
-        echo " Full"
+        echo ""
     else
         echo "${battery_discharging[$idx]}"
         idx=$(calc $idx + 0.25)
@@ -31,11 +31,7 @@ case $1 in
     fi
     ;;
 "capacity")
-    # if capacity is 100 then echo ""
-    if [[ $capacity -eq 100 ]]; then
-        echo ""
-    else
-        echo "$capacity %"
-    fi
+
+    echo "$capacity%"
     ;;
 esac

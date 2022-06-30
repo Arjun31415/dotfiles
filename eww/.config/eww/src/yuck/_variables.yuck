@@ -25,7 +25,8 @@
 (defpoll battery_capacity :interval "1s"
 "./scripts/getBattery capacity")
 (defpoll battery_icon :interval "250ms" "./scripts/getBattery icon")
-
+(defpoll cpu_temperature_icon :interval "500ms" "./scripts/getCpuTemp icon")
+(defpoll cpu_temperature :interval "500ms" "./scripts/getCpuTemp temp");
 ;; MUSIC PLAYER VARS
 (defpoll art :interval "5s"
 "echo \"$HOME/.cache/eww/getart/cover.png\"")
