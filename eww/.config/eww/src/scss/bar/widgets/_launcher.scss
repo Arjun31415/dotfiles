@@ -1,0 +1,21 @@
+.launcher {
+  margin: 0.5em 0.5em 0.5em 1em;
+  border-radius: 6px;
+
+  button {
+    border-radius: inherit;
+    margin: 0.1em;
+    margin-right: 0.5em;
+    padding: 0em 0.5em;
+    color: #000;
+    font-size: 1.5em;
+    background-color: $color1;
+    &:hover {
+      background-color: $color2;
+      color: #000;
+    }
+  }
+  label {
+    font-family: "Material\-Design\-Iconic\-Font";
+  }
+}

@@ -1,0 +1,41 @@
+#!/bin/bash
+calc() { awk "BEGIN{ printf \"%.2f\n\", $* }"; }
+idx=$(eww get batteryIconIndex)
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+charging_label="label"
+declare -A battery_charging=([0]="" [0.25]="" [0.50]="" [0.75]="" [1.00]="")
+declare -A battery_discharging=([0]="" [0.25]="" [0.50]="" [0.75]="" [1.00]="")
+
+case $1 in
+"icon")
+    if [[ $(cat /sys/class/power_supply/BAT0/status) == "Charging" ]]; then
+        echo "${battery_charging[$idx]}"
+        # increment idx by 0.25
+        idx=$(calc $idx + 0.25)
+        # if idx is more than 1 then reset to 0
+        if [[ $(bc <<<"$idx > 1.00") -eq 1 ]]; then
+            idx=0
+        fi
+        # echo $key
+        eww update batteryIconIndex=$idx
+    elif [[ $(cat /sys/class/power_supply/BAT0/status) == "Full" ]]; then
+        echo " Full"
+    else
+        echo "${battery_discharging[$idx]}"
+        idx=$(calc $idx + 0.25)
+        # if idx is more than 1 then reset to 0
+        if [[ $(bc <<<"$idx > 1.00") -eq 1 ]]; then
+            idx=0
+        fi
+        eww update batteryIconIndex=$idx
+    fi
+    ;;
+"capacity")
+    # if capacity is 100 then echo ""
+    if [[ $capacity -eq 100 ]]; then
+        echo ""
+    else
+        echo "$capacity %"
+    fi
+    ;;
+esac

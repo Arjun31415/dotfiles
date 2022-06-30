@@ -1,0 +1,53 @@
+#!/bin/sh
+
+workspaces() {
+    # use i3-msg -t get_workspaces | jq
+    json_output=$(i3-msg -t get_workspaces | jq ". | sort_by(.num)")
+    # number of workspaces
+    n=$(echo $json_output | jq ". | length")
+    btn=$(
+        cat <<-END
+    (box :class "ws"
+                :orientation "h"
+                :space-evenly "false"
+                :halign "center"
+END
+    )
+    for i in $(eval echo "{0..$((n - 1))}"); do
+        ws_name=$(echo $json_output | jq ".[$i].name")
+        ws_focused=$(echo $json_output | jq ".[$i].focused")
+        ws_visible=$(echo $json_output | jq ".[$i].visible")
+        focused=""
+        visible=""
+        if $ws_focused; then
+            focused="focused"
+        fi
+        if $ws_visible; then
+            visible="visible"
+        fi
+        btn1=$(
+            cat <<-END
+    (button :class "ws$i $focused $visible"
+            :onclick 'i3-msg workspace $ws_name'
+            $ws_name 
+    )
+END
+        )
+        if [ $i -ne $((n - 1)) ]; then
+            btn1="${btn1}(label :class \"sep\" :text \"|\" )"
+        fi
+        # echo $btn1
+        btn="${btn}$btn1"
+    done
+    btn="${btn})"
+    echo $btn
+}
+
+workspaces
+i3-msg -t subscribe -m '[ "workspace" ]' | while read line; do
+    workspaces
+done
+
+# bspc subscribe desktop node_transfer | while read -r _ ; do
+# workspaces
+# done

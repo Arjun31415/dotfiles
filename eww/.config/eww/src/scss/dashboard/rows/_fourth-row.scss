@@ -1,0 +1,21 @@
+.dashboard-box {
+	.system-btn {
+		margin-top: 1em;
+		padding: 1em 1.5em;
+		background-color: $background-primary;
+		border-radius: 5px;
+
+		button {
+			font-size: 28px;
+			margin: .2em .3em;
+			padding: .4em;
+			background-color: $background-secondary;
+			border-radius: 30%;
+			font-family: "Material Icons";
+
+			&:hover {
+				color: $accent;
+			}
+		}
+	}
+}
