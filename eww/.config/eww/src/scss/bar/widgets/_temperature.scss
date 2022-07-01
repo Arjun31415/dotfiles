@@ -1,12 +1,9 @@
-.cpu_temp_icon,
-.cpu_temp_value {
+.cpu_temp_icon {
   font-family: "Material\-Design\-Iconic\-Font";
-  font-size: 1.5rem;
-  margin-top: 0.25em;
-}
-.cpu_temp_value {
-  font-family: "FantasqueSansMono Nerd Font Mono";
-  margin-right: 2em;
-  margin-left: 0em;
-  i
+  font-size: 1.3rem;
+  margin: 0.5em 0.5em;
+  padding: 0 1em;
+  border-radius: 300em;
+  color: #000;
+  font-weight: 600;
 }

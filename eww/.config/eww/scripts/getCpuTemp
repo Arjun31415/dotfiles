@@ -14,7 +14,7 @@ declare -a tempColors=(
     #    0       1         2         3        4
     "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E"
     "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E" "#6CCB6E"
-    "#7FE4D2" "#7FE4D2" "#7FE4D2" "#FB6396" "#FB6396"
+    "#7FE4D2" "#7FE4D2" "#7FE4D2" "#7FE4D2" "#7FE4D2"
     "#FB6396" "#FB6396" "#F92D72" "#F92D72" "#F92D72"
     "#F92D72"
 )
@@ -22,7 +22,6 @@ case $1 in
 "icon")
     if [[ $temp -gt 100 ]]; then
         echo "${tempIcons[9]}"
-
     else
         idx=$(($temp / 5))
         # echo $idx
