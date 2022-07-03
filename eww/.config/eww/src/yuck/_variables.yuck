@@ -1,5 +1,4 @@
 (defvar eww "$HOME/.local/bin/eww -c $HOME/.config/eww/")
-; (defvar batteryIcons "{\"charging\":[\"\",\"\",\"\",\"\"]}")
 (defvar batteryIconIndex 0)
 ;;  DATE VARS
 (defpoll minute :interval "1s"
@@ -21,7 +20,7 @@
 (defpoll micro :interval "1s"
 "amixer -D pulse sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
 (defpoll brightness :interval "500ms"
-  "brightnessctl -m -d intel_backlight | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
+  "brightnessctl -m -d amdgpu_bl0 | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
 (defpoll battery_capacity :interval "1s"
 "./scripts/getBattery capacity")
 (defpoll battery_icon :interval "250ms" "./scripts/getBattery icon")
@@ -52,13 +51,13 @@
 "hostname")
 
 ;; WEATHER VARS
-(defpoll weather_temp :interval "3h"
+(defpoll weather_temp :interval "1h"
 "./scripts/getWeather current_temp")
-(defpoll weather_temp_f :interval "3h"
+(defpoll weather_temp_f :interval "1h"
 "./scripts/getWeather current_temp_fahrenheit")
-(defpoll weather_desc :interval "3h"
+(defpoll weather_desc :interval "1h"
 "./scripts/getWeather weather_desc")
-(defpoll weather_feels_like :interval "3h"
+(defpoll weather_feels_like :interval "1h"
 "./scripts/getWeather feels_like")
 
 ;; CALENDAR VARS
@@ -70,8 +69,9 @@
 "date '+%Y'")
 
 ;; UTILITY ROW VARS
-(defpoll network_status :interval "1s" "scripts/getNetwork color")
-(defpoll redshift_status :interval "1s" "./scripts/getRedshift color")
+(defpoll network_status :interval "1s" "scripts/getNetwork status")
+(defpoll network_icon :interval "1s" "scripts/getNetwork icon")
+; (defpoll redshift_status :interval "1s" "./scripts/getRedshift color")
 (defpoll dnd_status :interval "1s" "./scripts/dashActions.sh dndstat")
 (defpoll jeff_status :interval "1s" "./scripts/dashActions.sh jstat")
 

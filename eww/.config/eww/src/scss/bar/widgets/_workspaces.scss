@@ -1,6 +1,6 @@
 .ws {
-  font-size: 1.3em;
-  font-family: "FantasqueSansMono Nerd Font";
+  font-size: 1.5em;
+  font-family: "Material\-Design\-Iconic\-Font";
   // margin-top: 0.55em;
   button:not(:last-child) {
     // background-color: #f5f5f5;
@@ -9,9 +9,15 @@
   label {
     padding: 0.5em;
     margin: 0;
+    // font-family: "FontAwesome";
+    font-family: "Material\-Design\-Iconic\-Font";
+    font-weight: 700;
   }
 }
 .visible > label {
+  // font-family"FontAwesome";
+  font-family: "Material\-Design\-Iconic\-Font";
+
   border-bottom: 1px solid $color8;
 }
 .visible,
@@ -21,11 +27,13 @@
 .focused,
 .focused:hover {
   background-color: $color8;
+  color: $color13;
 }
 .focused > label {
   border-bottom: 1px solid $color1;
 }
 .sep {
+  font-family: "FontAwesome";
   color: $color4;
   font-weight: 800;
   font-size: 1.3em;

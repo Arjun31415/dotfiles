@@ -2,7 +2,9 @@
   :geometry (geometry :x "0%"
              :y "0%"
              :height "0%"
-             :width "100%")
+             :width "100%"
+             :anchor "bottom center"
+              )
   :monitor 0
   :stacking "bg"
   :windowtype "dock"
@@ -11,11 +13,11 @@
 
 (defwindow calendar
   :geometry (geometry :x "0%"
-             :y "8%"
+             :y "-5%"
              :width "230px"
              :height "230px"
-             :anchor "top center")
-  :windowtype "dock"
+             :anchor "bottom center")
+  :windowtype "normal"
   :stacking "fg"
   :wm-ignore false
   (cal))

@@ -1,0 +1,4 @@
+#!/bin/bash
+gh api \
+           -H "Accept: application/vnd.github+json" \
+           -X GET '/notifications?' | jq ". |length"

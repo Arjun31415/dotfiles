@@ -47,9 +47,9 @@
             )
           )
           (box :class "song-controls" :orientation "v"
-            (button :onclick "playerctl previous" "")
-            (button :class "play-pause" :onclick "playerctl play-pause" player_status)
-            (button :onclick "playerctl next" "")
+            (button :onclick "playerctl previous" "")
+            (button :class "play-pause" :onclick "playerctl play-pause && f=$(eww get player_status);f=$((1-f));eww update player_status=$f  " {player_status==1 ? "" : ""})
+            (button :onclick "playerctl next" "")
           )
         )
       )
@@ -71,10 +71,10 @@
             (label :class "volume-icon" :text "")
             (scale :min 0
               :max 101
-              :value volume
+              :value volume_1
               :orientation "v"
               :flipped true
-              :tooltip "Volume: ${volume}%"
+              :tooltip "Volume: ${volume_1}%"
               :onchange "amixer -D pulse sset Master {}%"
               :class "volbar"
             )
@@ -107,13 +107,18 @@
       )
       (box :class "fourth-row" :orientation "h"
         (box :class "system-btn" :orientation "h" :space-evenly "true"
-          (button :class "network-btn" :style "background-color: ${network_status}" :tooltip "Network" :onclick "iwgtk &" "")
-          (button :class "redshift-btn" :style "background-color: ${redshift_status}" :tooltip "Night Light" :onclick "sh ./scripts/getRedshift toggle" "")
-          (button :class "dnd-btn" :style "background-color: ${dnd_status}" :onclick "sh ./scripts/dashActions.sh dnd" :tooltip "Do Not Disturb" "")
-          (button :class "jeff-btn" :style "background-color: ${jeff_status}" :tooltip "Capture Screen" :onclick "sh ./scripts/dashActions.sh jeff" "")
+          (button :class {network_status==0 ? "network-btn network__disabled" : "network-btn network__active"}
+                  :tooltip "Network"
+                  :onclick "networkmanager_dmenu &" "${network_icon}")
+          ; (button :class "redshift-btn" :style "background-color: ${redshift_status}" :tooltip "Night Light" :onclick "sh ./scripts/getRedshift toggle" {redshift_status})
+          (button :class { dnd_status==0 ? "dnd__disabled dnd-btn" : "dnd__active dnd-btn" }
+                  :onclick "sh ./scripts/dashActions.sh dnd" :tooltip "Do Not Disturb" "")
+          (button :class { jeff_status==0 ? "jeff-btn jeff__disabled" : "jeff-btn jeff__active"}
+                  :tooltip "Capture Screen"
+                  :onclick "sh ./scripts/dashActions.sh jeff &" "")
         )
       )
     )
   )
 )
-(defvar dash false)
+(defvar dash true)

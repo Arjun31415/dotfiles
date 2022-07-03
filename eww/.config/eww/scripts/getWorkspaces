@@ -1,4 +1,6 @@
 #!/bin/sh
+declare -A ws_icons=( [1]="" [2]="" [3]="" [4]="" [5]=""  [6]="" [7]="" [8]="" [9]="" )
+declare -A ws_icons2=( ["1"]="" ["2"]="" ["3"]="" ["4"]="" ["5"]=""  ["6"]="" ["7"]="" ["8"]="" ["9"]="" )
 
 workspaces() {
     # use i3-msg -t get_workspaces | jq
@@ -25,11 +27,14 @@ END
         if $ws_visible; then
             visible="visible"
         fi
+        ws_temp=$(sed -e 's/^"//' -e 's/"$//' <<< "$ws_name")
+        ws_symbol=${ws_icons[$ws_temp]}
+
         btn1=$(
             cat <<-END
     (button :class "ws$i $focused $visible"
             :onclick 'i3-msg workspace $ws_name'
-            $ws_name 
+            "$ws_symbol" 
     )
 END
         )

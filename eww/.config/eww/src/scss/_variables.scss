@@ -13,15 +13,12 @@ $blue-desaturated: #6791c9;
 $magenta: #cb92f2;
 $green: #96d6b0;
 $yellow: #ffb29b;
-$accent: $blue;
-
 $javacafeMagenta: #d7c1ed;
 $javacafeBlue: #bac8ef;
 $javacafeCyan: #c7e5d6;
-
+// amarena color scheme colors
 $foreground-alt: #8f8f8f;
 $module-fg: #1f1f1f;
-// transparent background. Due to the aa at the start
 $background: #1a2026;
 $foreground: #ffffff;
 $cursorColor: #ffffff;
@@ -44,3 +41,5 @@ $color15: #f4f5f2;
 $primary: $color1;
 $secondary: $color4;
 $alternate: $color2;
+$accent: $color1;
+$accent2: $color2;
