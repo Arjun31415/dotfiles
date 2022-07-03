@@ -2,4 +2,4 @@ mpd/.config/mpd/log.log
 mpd/.config/mpd/mpd.pid
 mpd/.config/mpd/mpd_state
 mpd/.config/mpd/sticker.sql
-
+*.env.*
