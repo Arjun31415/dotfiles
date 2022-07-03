@@ -1,0 +1,71 @@
+#!/bin/sh
+set -a # automatically export all variables
+source ~/.config/eww/scripts/.env
+set +a
+API="api.openweathermap.org/data/2.5"
+UNITS="metric"
+CITY=""
+if [ ! -z $CITY ]; then
+    if [ "$CITY" -eq "$CITY" ] 2>/dev/null; then
+        CITY_PARAM="id=$CITY"
+    else
+        CITY_PARAM="q=$CITY"
+    fi
+    weather=$(curl -sf "$API/weather?$CITY_PARAM&appid=$KEY&units=metric")
+
+else
+
+    # if [ -z $CITY ]
+    location=$(curl -sf https://location.services.mozilla.com/v1/geolocate?key=geoclue)
+    if [ ! -z "$location" ]; then
+        location_lat="$(echo "$location" | jq '.location.lat')"
+        location_lon="$(echo "$location" | jq '.location.lng')"
+        # current=$(curl -sf "$API/weather?appid=$KEY&lat=$location_lat&lon=$location_lon&units=$UNITS")
+        # forecast=$(curl -sf "$API/forecast?appid=$KEY&lat=$location_lat&lon=$location_lon&units=$UNITS&cnt=1")
+        weather=$(curl -sf "$API/weather?appid=$KEY&lat=$location_lat&lon=$location_lon&units=$UNITS")
+
+    fi
+fi
+weather_desc=$(echo $weather | jq -r ".weather[0].main")
+weather_temp=$(echo $weather | jq ".main.temp" | cut -d "." -f 1)
+feels_like=$(echo $weather | jq ".main.feels_like" | cut -d "." -f 1)
+humidity=$(echo $weather | jq ".main.humidity")
+wind=$(echo $weather | jq ".wind.speed")
+check_if_empty() {
+    if [ -z "$1" ]; then
+        echo "0"
+    else
+        echo "$1"
+    fi
+}
+
+check_if_empty_text() {
+    if [ -z "$1" ]; then
+        echo "404"
+    else
+        echo "$1"
+    fi
+}
+
+case $1 in
+current_temp)
+    check_if_empty $weather_temp
+    ;;
+current_temp_fahrenheit)
+    # Convert $weather_temp to Fahrenheit without decimals.
+    weather_temp=$((($weather_temp * 9 / 5) + 32))
+    check_if_empty $weather_temp
+    ;;
+feels_like)
+    check_if_empty $feels_like
+    ;;
+weather_desc)
+    check_if_empty_text $weather_desc
+    ;;
+humidity)
+    check_if_empty $humidity
+    ;;
+wind)
+    check_if_empty $wind
+    ;;
+esac
