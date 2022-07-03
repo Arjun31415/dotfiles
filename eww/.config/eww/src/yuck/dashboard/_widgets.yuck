@@ -68,14 +68,14 @@
         )
         (box :class "system-info" :orientation "h" :space-evenly "false"
           (box :class "volume" :orientation "v" :space-evenly "false"
-            (label :class "volume-icon" :text "")
+            (label :class "volume-icon" :text "")
             (scale :min 0
-              :max 101
-              :value volume_1
+              :max 100
+              :value volume
               :orientation "v"
               :flipped true
-              :tooltip "Volume: ${volume_1}%"
-              :onchange "amixer -D pulse sset Master {}%"
+              :tooltip "Volume: ${volume}%"
+              :onchange "amixer sset Master {}%"
               :class "volbar"
             )
           )
@@ -92,14 +92,14 @@
             )
           )
           (box :class "mic" :orientation "v" :space-evenly "false"
-            (label :class "mic-icon" :text "")
+            (label :class "mic-icon" :text "")
             (scale :min 0
               :max 101
               :value micro
               :orientation "v"
               :flipped true
               :tooltip "Microphone Volume: ${micro}%"
-              :onchange "amixer -D pulse sset Capture {}%"
+              :onchange "amixer  sset Capture {}%"
               :class "micbar"
             )
           )
