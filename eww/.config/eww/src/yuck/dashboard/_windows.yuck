@@ -1,7 +1,7 @@
 (defwindow dashboard
-  :geometry (geometry :x "0%"
+  :geometry (geometry :x "-3%"
     :y "3%"
-    :width "26%"
+    :width "20%"
     :height "82%"
   :anchor "center right")
   :windowtype "normal"

@@ -1,6 +1,10 @@
+
 (defwidget dashboard []
   (box :class "dashboard-window" :space-evenly "false"  :orientation "h"
-    (box :class "dashboard-spacer" :style {dash ? "padding-left: 0em;" : "padding-left: 437px;"})
+    ; (box :class "dashboard-spacer" 
+    ;      :style {dash ? "padding-left: 0;" : "padding-left: 150px;"}
+    ;   )
+    (revealer :transition "crossfade" :reveal dash :duration "500ms"
     (box :class "dashboard-box" :orientation "v" :space-evenly "false"
       (box :class "first-row" :orientation "h"
         (box :class "column-one" :orientation "v"
@@ -22,6 +26,13 @@
             (label :class "monthday" :text "${monthday}" :halign "start")
           )
         )
+        (box :class "column-three" :orientation "v" :space-evenly "false"
+          (box :class "github-notifs" :orientation "h" :space-evenly "false"
+            (button :class "github-notifs__btn"
+                    :onclick "brave \"https://github.com/notifications?query=is%3Aunread\" &"
+              (box
+                (label :class "github-notifs__icon" :text "")
+                (label :class "github-notifs__count" :text "${github_notifs_count}")))))
       )
       (box :class "second-row" :orientation "h"
         (box :class "music-player" :orientation "h" :space-evenly "false"
@@ -106,6 +117,7 @@
         )
       )
       (box :class "fourth-row" :orientation "h"
+           :width "70%"
         (box :class "system-btn" :orientation "h" :space-evenly "true"
           (button :class {network_status==0 ? "network-btn network__disabled" : "network-btn network__active"}
                   :tooltip "Network"
@@ -121,4 +133,5 @@
     )
   )
 )
-(defvar dash true)
+)
+(defvar dash false)

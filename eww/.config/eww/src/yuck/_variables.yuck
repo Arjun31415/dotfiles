@@ -75,5 +75,8 @@
 (defpoll dnd_status :interval "1s" "./scripts/dashActions.sh dndstat")
 (defpoll jeff_status :interval "1s" "./scripts/dashActions.sh jstat")
 
+;; NOTIFICATION VARS
+(defpoll github_notifs_count :interval "15min" "scripts/getGithubNotifs")
+
 ;; VOLUME INDICATOR VARS
 (defvar volume_muted false)

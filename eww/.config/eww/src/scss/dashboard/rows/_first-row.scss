@@ -51,5 +51,19 @@
         }
       }
     }
+    .column-three {
+      margin: 5px 5px 5px 10px;
+      .github-notifs__icon {
+        font-size: 24px;
+        font-family: "Material\-Design\-Iconic\-Font";
+        color: #fff;
+      }
+      .github-notifs__count {
+        font-size: 24px;
+        font-family: "FantasqueSansMono Nerd Font Mono";
+        color: #fff;
+        font-weight: 800;
+      }
+    }
   }
 }
