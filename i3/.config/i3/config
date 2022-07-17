@@ -61,7 +61,9 @@ floating_modifier $super
 # exec --no-startup-id /usr/bin/i3-autodisplay
 exec --no-startup-id /usr/bin/picom &
 # exec --no-startup-id xsettingsd &
-exec --no-startup-id ~/.fehbg &
+# exec --no-startup-id ~/.fehbg &
+exec --no-startup-id /usr/bin/superpaper &
+
 #exec --no-startup-id pasystray
 exec_always --no-startup-id autotiling
 # exec --no-startup-id conky
