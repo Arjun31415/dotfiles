@@ -1,3 +1,6 @@
 [submodule "nvim/.config/nvim"]
 	path = nvim/.config/nvim
 	url = https://github.com/Arjun31415/nvim-config.git
+[submodule "extra_fonts/icursive-nerd-font"]
+	path = extra_fonts/icursive-nerd-font
+	url = https://git.sainnhe.dev/sainnhe/icursive-nerd-font
