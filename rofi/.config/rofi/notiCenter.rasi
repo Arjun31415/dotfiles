@@ -1,0 +1,99 @@
+@import "colors.rasi"
+
+configuration {
+    show-icons:                     true;
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    hide-scrollbar:                 true;
+    sidebar-mode:                   false;
+    font:                           "FantasqueSansMono Nerd Font Mono 10";
+}
+
+window {
+    location:                       east;
+    anchor:                         east;
+    x-offset:                       -14px;
+    y-offset:                       3%;
+    transparency:                   "real";
+    line-margin:                    1;
+    line-padding:                   1;
+    width:                          358px;
+    height:                         84%;
+    border:                         2px;
+    border-radius:                  10px;
+    border-color:                   @xbg;
+}
+
+prompt {
+    background-color:               @xbg;
+    text-color:                     @xfg;
+    padding:                        15px 20px 5px 5px;
+    margin:                         0 5%;
+    font:                           "FantasqueSansMono Nerd Font Mono 14";
+}
+
+inputbar {
+    children:                       [ prompt ];
+    background-color:               @xbg;
+    text-color:                     @xbg;
+    expand:                         false;
+    margin:                         0px 0px 0px 0px;
+    padding:                        1%;
+}
+
+listview {
+    background-color:               @xbg;
+    padding:                        10px;
+    columns:                        1;
+    lines:                          6;
+    spacing:                        0%;
+    cycle:                          false;
+    dynamic:                        false;
+    layout:                         vertical;
+}
+
+mainbox {
+    background-color:               @xbg;
+    border-color:                   @border;
+    children:                       [ inputbar, listview ];
+    spacing:                       	0%;
+    padding:                        8px;
+}
+
+element {
+    orientation:                    horizontal;
+    background-color:               @x0;
+    text-color:                     @xfg;
+    border-radius:                  10px;
+    padding:                        3px 0px 0px 3px;
+    margin:                         6px 0px 6px 0px;
+}
+
+element-icon, element-text {
+    background-color:               inherit;
+    text-color:                     inherit;
+}
+
+element-icon {
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    size:                           48px;
+    margin:                         0px 0px 0px 3px;
+    border:                         12px;
+    border-color:                   transparent;
+}
+
+element-text {
+    expand:                         true;
+    horizontal-align:               0.5;
+    vertical-align:                 0.5;
+    margin:                         12px 12px 12px 0px;
+}
+
+element selected {
+    background-color:               @x0;
+    text-color:                     @xfg;
+    border:                         0px 0px 0px 3px;
+    border-color:                   @accent;
+    border-radius:                  10px;
+}

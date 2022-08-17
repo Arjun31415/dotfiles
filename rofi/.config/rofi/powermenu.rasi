@@ -1,0 +1,129 @@
+/*
+ *
+ * Author  : Aditya Shakya
+ * Mail    : adi1090x@gmail.com
+ * Github  : @adi1090x
+ * Twitter : @adi1090x
+ *
+ */
+configuration {
+	font:							"FantasqueSansMono Bold Nerd Font 10";
+    show-icons:                     true;
+	icon-theme: 					"Papirus";
+    drun-display-format:            "{name}";
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+@import "colors.rasi"
+
+window {
+    transparency:                   "real";
+    background-color:               @xbg;
+    //fg
+    text-color:                     @xfg;
+	border:							0px;
+	border-color:					@x1;
+    border-radius:                  0px;
+	width:							300px;
+    location:                       center;
+    x-offset:                       0;
+    y-offset:                       0;
+}
+mainbox {
+    background-color:               @x4;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					@x1;
+    children:                       [ inputbar, listview ];
+    spacing:                       	0px;
+    padding:                        0px;
+}
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               @x1;
+    text-color:                     @x0;
+    expand:                         false;
+	border:							0px;
+    border-radius:                  0px;
+	border-color:					@x1;
+    margin:                         0px;
+    padding:                        15px 0px 8px 25px;
+}
+
+prompt {
+    enabled: 						true;
+	padding: 						0px 5px 5px 0px;
+	background-color: 				@x1;
+	text-color: 					@x0;
+}
+
+textbox-prompt-colon {
+	padding: 						-2px 5px 5px -10px;
+	background-color: 				@x1;
+	text-color: 					@x0;
+	expand: false;
+	str: "";
+}
+
+entry {
+    background-color:               @x4;
+    text-color:                     @x0;
+    placeholder-color:              @x9;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search...";
+    padding:                        1px;
+    blink:                          true;
+}
+
+
+listview {
+    background-color:               @x4;
+    padding:                        0px;
+    columns:                        1;
+    lines:                          6;
+    spacing:                        5px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+
+element {
+    background-color:               @x4;
+    // fg
+    text-color:                     @x4;
+    orientation:                    horizontal;
+    border-radius:                  0px;
+    padding:                        15px;
+    	/* highlight: bold underline; */
+
+}
+
+element-icon {
+    size:                           0px;
+    border:                         0px;
+}
+
+element-text {
+	font:							"FantasqueSansMono Bold Nerd Font 10";
+
+    background-color:               @x4;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         0px 0px 0px -5px;
+}
+
+element selected{
+    background-color:               @x5;
+    //fg
+    text-color:                     @xfg;
+	border:							0px;
+    border-radius:                  0px;
+    border-color:                  	@xbg;
+}
+
