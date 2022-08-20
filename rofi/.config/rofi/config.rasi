@@ -3,6 +3,9 @@ configuration {
     modi: "combi,windowcd,run";
     lines: 10;
     columns: 2;
+    sort: true;
+    matching: "fuzzy";
+    levenshtein-sort:"false";
     font: "Roboto Regualar 13";
     bw: 0;
     location: 0;
