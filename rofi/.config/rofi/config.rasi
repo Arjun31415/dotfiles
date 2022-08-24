@@ -1,6 +1,6 @@
 configuration {
     /* hover-select: true; */
-    modi: "combi,windowcd,run";
+    modi: "combi,windowcd,run,drun";
     lines: 10;
     columns: 2;
     sort: true;
