@@ -26,7 +26,7 @@ set $TERMINAL /usr/bin/kitty
 set $preferredTerminalEmulator /usr/bin/kitty
 set $preferredBrowser /usr/bin/brave
 set $preferredFileManager /usr/bin/thunar
-set $preferredMailClient /usr/bin/geary
+set $preferredMailClient /usr/bin/mailspring
 set $preferredTextEditor /usr/bin/geany
 set $preferredScreenCaptureTool /usr/bin/flameshot gui
 
@@ -59,7 +59,7 @@ floating_modifier $super
 
 # autostart
 # exec --no-startup-id /usr/bin/i3-autodisplay
-exec --no-startup-id /usr/bin/picom &
+exec --no-startup-id /usr/bin/picom --experimental-backends &
 # exec --no-startup-id xsettingsd &
 # exec --no-startup-id ~/.fehbg &
 exec --no-startup-id /usr/bin/superpaper &
