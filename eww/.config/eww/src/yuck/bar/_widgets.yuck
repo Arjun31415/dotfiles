@@ -77,7 +77,6 @@
   ; (label :class "cpu_temp_value"
   ;        :style "background-color:${tempColor};"
   ;        :text "${cpu_temperature}")
-  
 (deflisten no_of_updates "scripts/updates.sh")
 
 (defwidget updates []
