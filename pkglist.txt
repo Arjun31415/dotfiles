@@ -14,6 +14,7 @@ autotiling
 b43-fwcutter
 balena-etcher
 bash-completion
+bfg
 bison
 brave-bin
 bridge-utils
