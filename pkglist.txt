@@ -12,11 +12,13 @@ autoconf
 automake
 autotiling
 b43-fwcutter
+balena-etcher
 bash-completion
 bison
 brave-bin
 bridge-utils
 bzip2
+cava-git
 chaotic-keyring
 conky-lua
 conky-manager
@@ -58,6 +60,7 @@ gimp
 git-crypt
 github-cli
 gnu-netcat
+go
 gparted
 grep
 groff
@@ -125,6 +128,7 @@ onboard
 optimus-manager
 os-prober-btrfs
 p7zip
+p7zip-gui
 pacutils
 pandoc
 pasystray
@@ -153,6 +157,7 @@ qutebrowser
 r
 redshift
 reiserfsprogs
+ripgrep-git
 rofi-dmenu
 samba-support
 scanner-support
