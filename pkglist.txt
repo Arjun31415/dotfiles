@@ -103,6 +103,7 @@ geary
 gestures
 gettext
 gimp
+giph
 git
 git-crypt
 git-filter-repo
