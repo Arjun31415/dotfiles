@@ -59,6 +59,7 @@ gestures
 gettext
 gimp
 git-crypt
+git-filter-repo
 github-cli
 gnu-netcat
 go
