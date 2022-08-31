@@ -92,5 +92,4 @@ use_console_editor = yes
 ### Behaviour ###
 
 message_delay_time = 5
-execute_on_song_change = "/usr/bin/python3 ~/.local/bin/mpd_notify.py"
-
+execute_on_song_change = "~/.local/bin/mpd_notify"

@@ -1,0 +1,109 @@
+sw_volume: 100
+audio_device_state:1:pulse audio
+audio_device_state:1:mpd_fifo
+state: pause
+current: 33
+time: 119.043000
+random: 0
+repeat: 1
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:Nyu.mp3
+1:Anime/Mrs Green Apple Inferno_.mp3
+2:Anime/Just_Awake.mp3
+3:Anime/Black_Catcher.mp3
+4:Anime/unravel.mp3
+5:Anime/Let_Me_Hear.mp3
+6:Anime/Gurenge (Demon Slayer) - Remix.mp3
+7:Anime/Kaikai_Kitan.mp3
+8:Anime/Kimi_No_Toriko.mp3
+9:Anime/crossing_field.mp3
+10:Anime/Gurenge.mp3
+11:Anime/asphyxia.mp3
+12:Anime/boruto song.mp3
+13:Anime/Untitled_world.mp3
+14:Anime/Black_Rover.mp3
+15:Metal/Requiem.mp3
+16:Anime/kawaki wo ameku.mp3
+17:Anime/Yoru ni Kakeru.mp3
+18:Anime/Haikyuu OP song 1.mp3
+19:Anime/KISS_OF_DEATH_Produced_by_HYDE_.mp3
+20:Metal/Back_In_Black.mp3
+21:Metal/The_Sin_and_the_Sentence.mp3
+22:Metal/On My Own.mp3
+23:Metal/Avenged Sevenfold/Critical_Acclaim.mp3
+24:Metal/Avenged Sevenfold/M_I_A_.mp3
+25:Metal/Avenged Sevenfold/Hail_to_the_King.mp3
+26:Pop/Seven You.mp3
+27:Pop/Blank_Space.mp3
+28:Pop/Shake_It_Off.mp3
+29:Pop/Blinding_Lights.mp3
+30:Pop/Cradles.mp3
+31:Pop/Heat_Waves.mp3
+32:Pop/INDUSTRY_BABY__feat__Jack_Harlow_.mp3
+33:Pop/Love_The_Way_You_Lie__Part_II____Pt__2.mp3
+34:Pop/MONTERO__Call_Me_By_Your_Name_.mp3
+35:Pop/I_Knew_You_Were_Trouble_.mp3
+36:Pop/STAY (with Justin Bieber).mp3
+37:Pop/SugarCrash_.mp3
+38:Pop/The_Search.mp3
+39:Pop/This_Love__Taylor_s_Version_.mp3
+40:Pop/Wildest_Dreams__Taylor_s_Version_.mp3
+41:Pop/Toxic.mp3
+42:Pop/Everyday_Normal_Guy_2.mp3
+43:This_Is_Polyphia/Champagne.mp3
+44:This_Is_Polyphia/G_O_A_T_.mp3
+45:This_Is_Polyphia/Goose.mp3
+46:This_Is_Polyphia/40oz.mp3
+47:Nyu.mp3
+48:Anime/Mrs Green Apple Inferno_.mp3
+49:Anime/Just_Awake.mp3
+50:Anime/Black_Catcher.mp3
+51:Anime/unravel.mp3
+52:Anime/Let_Me_Hear.mp3
+53:Anime/Gurenge (Demon Slayer) - Remix.mp3
+54:Anime/Kaikai_Kitan.mp3
+55:Anime/Kimi_No_Toriko.mp3
+56:Anime/crossing_field.mp3
+57:Anime/Gurenge.mp3
+58:Anime/asphyxia.mp3
+59:Anime/boruto song.mp3
+60:Anime/Untitled_world.mp3
+61:Anime/Black_Rover.mp3
+62:Anime/kawaki wo ameku.mp3
+63:Anime/Yoru ni Kakeru.mp3
+64:Anime/Haikyuu OP song 1.mp3
+65:Anime/KISS_OF_DEATH_Produced_by_HYDE_.mp3
+66:Metal/Back_In_Black.mp3
+67:Metal/Requiem.mp3
+68:Metal/The_Sin_and_the_Sentence.mp3
+69:Metal/On My Own.mp3
+70:Metal/Avenged Sevenfold/Critical_Acclaim.mp3
+71:Metal/Avenged Sevenfold/M_I_A_.mp3
+72:Metal/Avenged Sevenfold/Hail_to_the_King.mp3
+73:Pop/Seven You.mp3
+74:Pop/Blank_Space.mp3
+75:Pop/Shake_It_Off.mp3
+76:Pop/Blinding_Lights.mp3
+77:Pop/Cradles.mp3
+78:Pop/Heat_Waves.mp3
+79:Pop/INDUSTRY_BABY__feat__Jack_Harlow_.mp3
+80:Pop/Love_The_Way_You_Lie__Part_II____Pt__2.mp3
+81:Pop/MONTERO__Call_Me_By_Your_Name_.mp3
+82:Pop/I_Knew_You_Were_Trouble_.mp3
+83:Pop/STAY (with Justin Bieber).mp3
+84:Pop/SugarCrash_.mp3
+85:Pop/The_Search.mp3
+86:Pop/This_Love__Taylor_s_Version_.mp3
+87:Pop/Wildest_Dreams__Taylor_s_Version_.mp3
+88:Pop/Toxic.mp3
+89:Pop/Everyday_Normal_Guy_2.mp3
+90:This_Is_Polyphia/Champagne.mp3
+91:This_Is_Polyphia/G_O_A_T_.mp3
+92:This_Is_Polyphia/Goose.mp3
+93:This_Is_Polyphia/40oz.mp3
+playlist_end
