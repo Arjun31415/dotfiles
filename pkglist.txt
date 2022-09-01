@@ -8,7 +8,6 @@ arandr
 archlinux-xdg-menu
 arj
 asian-fonts
-auto-cpufreq
 autoconf
 automake
 autorandr
@@ -33,11 +32,14 @@ catfish
 cava-git
 chaotic-keyring
 chaotic-mirrorlist
+clang-format-all-git
+cmake
 conky-lua
 conky-manager
 copyq
 coreutils
 cpio
+cpupower-gui
 cryptsetup
 curlftpfs
 dateutils
@@ -51,6 +53,7 @@ dosfstools
 downgrade
 dunst
 e2fsprogs
+easyeffects
 ecryptfs-utils
 efibootmgr
 esound
@@ -113,6 +116,7 @@ gnome-firmware
 gnome-keyring
 gnu-netcat
 go
+google-chrome
 gparted
 grep
 groff
@@ -199,6 +203,9 @@ mkinitcpio-openswap
 mkinitcpio-systemd-tool
 mlocate
 modem-manager-gui
+mopidy
+mopidy-spotify
+mopidy-youtube
 mousepad
 mousetweaks
 mpc
@@ -206,16 +213,17 @@ mpd
 mpv
 mtools
 nano
-ncmpcpp
+ncmpcpp-git
 neofetch-git
 net-tools
 network-manager-applet
 networkmanager-dmenu-bluetoothfix-git
 networkmanager-support
-nextcloud-client
 nfs-utils
 nilfs-utils
 nodejs-lts-gallium
+noise-suppression-for-voice-git
+noisetorch
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
@@ -232,8 +240,8 @@ pacman
 pacman-contrib
 pacseek
 pacutils
-pamac-aur
 pandoc
+papirus-icon-theme-git
 paru
 pasystray
 patch
@@ -241,6 +249,7 @@ pavucontrol
 pciutils
 peco
 peek
+performance-tweaks
 perl-file-mimeinfo
 picom-jonaburg-fix
 pipewire-jack
@@ -252,7 +261,6 @@ plymouth-theme-garuda
 polkit-gnome
 polybar
 power-profiles-daemon
-powersave-tweaks
 powertop
 pragha
 printer-support
@@ -274,6 +282,7 @@ reiserfsprogs
 ripgrep-git
 ristretto
 rofi
+rofi-calc
 rofi-dmenu
 rsync
 rustup
@@ -288,6 +297,7 @@ snapper-support
 snapper-tools
 sof-firmware
 spicetify-cli
+spotiflyer-bin
 spotify
 sshfs
 stacer
@@ -315,6 +325,7 @@ ttf-material-design-iconic-font
 ttf-material-icons-git
 ttf-opensans
 tumbler
+turbostat
 ufw
 unace
 unarchiver
@@ -332,6 +343,7 @@ visual-studio-code-bin
 vlc
 wezterm
 wget
+whatpulse
 which
 wireless-regdb
 wireless_tools
@@ -345,6 +357,7 @@ xdg-desktop-portal
 xdg-desktop-portal-gtk
 xdg-user-dirs
 xdg-utils
+xdman
 xdotool
 xfce4-power-manager
 xfce4-settings
