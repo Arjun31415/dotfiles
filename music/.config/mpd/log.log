@@ -70,3 +70,6 @@ WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedeskto
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
 WARNING: Unhandled message: interface=org.freedesktop.DBus, path=/org/freedesktop/DBus, member=ActivatableServicesChanged
+Aug 31 14:29 : exception: Failed to open /home/arjun/.config/mpd/playlists: No such file or directory
+Aug 31 15:40 : player: played "Pop/Love_The_Way_You_Lie__Part_II____Pt__2.mp3"
+Aug 31 22:59 : player: played "Pop/Love_The_Way_You_Lie__Part_II____Pt__2.mp3"
