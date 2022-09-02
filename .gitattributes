@@ -2,3 +2,4 @@
 calendars/.config/khal/config filter=git-crypt diff=git-crypt
 calendars/.config/vdirsyncer/config filter=git-crypt diff=git-crypt
 calendars/.config/vdirsyncer/tokens filter=git-crypt diff=git-crypt
+music/.config/mopidy/mopidy.conf filter=git-crypt diff=git-crypt
