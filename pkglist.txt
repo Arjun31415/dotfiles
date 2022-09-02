@@ -224,6 +224,7 @@ nilfs-utils
 nodejs-lts-gallium
 noise-suppression-for-voice-git
 noisetorch
+notion-app-enhanced
 noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
