@@ -1,0 +1,28 @@
+[colors]
+background = '#1A2026'
+foreground = '#dcdcdc'
+ansi = [
+  '#242D35',
+  '#FB6396',
+  '#94CF95',
+  '#F692B2',
+  '#63C1D6',
+  '#CD84C8',
+  '#7FE4D2',
+  '#FFFFFF',
+]
+brights = [
+  '#526170',
+  '#F92D72',
+  '#6CCB6E',
+  '#F26190',
+  '#4CB9D6',
+  '#C269BC',
+  '#58D6BF',
+  '#F4F5F2',
+]
+cursor_fg = '#FFFFFF'
+
+[metadata]
+name = 'Amarena'
+origin_url = 'https://github.com/elenapan/dotfiles/blob/master/.xfiles/amarena'
