@@ -3,14 +3,15 @@ export EDITOR=nvim
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-
+set LUA_PATH "/usr/lib/luarocks/*;/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua; $HOME/.luarocks/share/lua/5.4/?.lua;/home/arjun/.luarocks/share/lua/5.4/?/init.lua;/usr/share/lua/5.4/?.lua;"
+set LUA_CPATH "/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;$HOME/.luarocks/lib/lua/5.4/?.so"
 # NPM stuff
 set NPM_PACKAGES "$HOME/.npm-packages"
-
 set PATH $PATH $NPM_PACKAGES/bin
 
 set PATH $PATH "/home/arjun/.cargo/bin"
 set PATH $PATH $SONAR_SCANNER_HOME/bin
+set PATH $PATH "$HOME/.luarocks/bin/"
 set SONAR_SCANNER_OPTS -server
 set PATH $PATH $HOME/.sonar/build-wrapper-linux-x86
 
@@ -167,7 +168,8 @@ alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
 alias ripk="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-
+# garuda theme location-  /usr/share/grub/themes/garuda/
+alias grub-theme-test="grub2-theme-preview --verbose --grub-cfg /boot/grub/grub.cfg"
 
 ## Run paleofetch if session is interactive
 if status --is-interactive
