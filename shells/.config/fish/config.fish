@@ -14,14 +14,20 @@ set PATH $PATH $SONAR_SCANNER_HOME/bin
 set PATH $PATH "$HOME/.luarocks/bin/"
 set SONAR_SCANNER_OPTS -server
 set PATH $PATH $HOME/.sonar/build-wrapper-linux-x86
+set NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 
-set MANPATH $NPM_PACKAGES/share/man $MANPATH
+#set MANPATH $NPM_PACKAGES/share/man $MANPATH
 # use neovim for vim when possible
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias rusty-man="rusty-man --viewer tui"
+alias unset 'set --erase'
+unset MANPATH # delete if you already modified MANPATH elsewhere in your configuration
+set MANPATH "$NPM_PACKAGES/share/man:$(manpath)"
+
 ## Export variable need for qt-theme
 if type qtile >>/dev/null 2>&1
     set -x QT_QPA_PLATFORMTHEME qt5ct
