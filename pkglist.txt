@@ -46,6 +46,7 @@ dateutils
 deluge-gtk
 dex
 dialog
+dictd
 discord
 dmidecode
 dmraid
@@ -159,6 +160,7 @@ khal
 kitty
 kvantum
 kvantum-theme-qogir-git
+lazygit
 lhasa
 lib32-pipewire-jack
 libdvdcss
@@ -180,6 +182,8 @@ linux-zen-headers
 logrotate
 lrzip
 lsb-release
+lua-language-server-git
+luarocks
 lvm2
 lxappearance-gtk3
 lxinput-gtk3
@@ -232,6 +236,8 @@ npm
 nss-mdns
 ntfs-3g
 numlockx
+obs-studio
+obsidian
 onboard
 optimus-manager
 os-prober-btrfs
@@ -261,7 +267,6 @@ plymouth-git
 plymouth-theme-garuda
 polkit-gnome
 polybar
-power-profiles-daemon
 powertop
 pragha
 printer-support
@@ -287,6 +292,7 @@ rofi-calc
 rofi-dmenu
 rsync
 rustup
+rusty-man
 samba-support
 scanner-support
 scrot
@@ -303,12 +309,15 @@ spotify
 sshfs
 stacer
 stow
+stylua-git
 subversion
 sudo
 superpaper-git
 systemd
 systemd-sysvcompat
+taplo-cli
 tar
+taskwarrior-tui
 teams
 terminus-font
 texinfo
@@ -317,6 +326,7 @@ thunar-archive-plugin
 thunar-media-tags-plugin
 thunar-volman
 tint2
+tk
 topgrade
 ttf-dejavu
 ttf-fantasque-sans-mono
@@ -340,6 +350,7 @@ util-linux
 vdirsyncer
 vi
 vim
+virt-manager-meta
 visual-studio-code-bin
 vlc
 wezterm
@@ -371,6 +382,7 @@ xorg-xhost
 xorg-xinit
 xorg-xinput
 xorg-xkill
+xorg-xlsclients
 xorg-xprop
 xorg-xrandr
 xorg-xsetroot
