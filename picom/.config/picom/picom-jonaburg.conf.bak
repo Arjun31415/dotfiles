@@ -1,16 +1,14 @@
 #################################
 #          Animations           #
 #################################
-animations = true
-# `auto`, `none`, `fly-in`, `zoom`, `slide-down`, `slide-up`, `slide-left`, `slide-right` `slide-in`, `slide-out`
-animation-for-transient-window = "fly-in"
-animation-for-open-window = "zoom"
-animation-for-unmap-window = "zoom"
-# animation-stiffness = 350
-animation-dampening = 20
-# animation-window-mass = 0.5
-# animation-delta = 8
-animation-clamping = false
+# requires https://github.com/jonaburg/picom
+# (These are also the default values)
+transition-length = 300
+transition-pow-x = 0.1
+transition-pow-y = 0.1
+transition-pow-w = 0.1
+transition-pow-h = 0.1
+size-transition = true
 
 
 #################################
@@ -46,7 +44,7 @@ round-borders-exclude = [
 # unless explicitly requested using the wintypes option.
 #
 # shadow = false
-shadow = true;
+shadow = false;
 
 # The blur radius for shadows, in pixels. (defaults to 12)
 # shadow-radius = 12
@@ -301,7 +299,7 @@ blur-background-exclude = [
 #
 experimental-backends = true;
 backend = "glx";
-# backend = "xrender";
+#backend = "xrender";
 
 
 # Enable/disable VSync.
@@ -337,7 +335,7 @@ detect-client-opacity = true;
 # try detecting this with X RandR extension.
 #
 # refresh-rate = 60
-# refresh-rate = 0
+refresh-rate = 0
 
 # Limit picom to repaint at most once every 1 / 'refresh_rate' second to 
 # boost performance. This should not be used with 
@@ -401,14 +399,14 @@ detect-client-leader = true
 # practically happened) and may not work with blur-background. 
 # My tests show a 15% performance boost. Recommended.
 #
-glx-no-stencil = true
+# glx-no-stencil = false
 
 # GLX backend: Avoid rebinding pixmap on window damage. 
 # Probably could improve performance on rapid window content changes, 
 # but is known to break things on some drivers (LLVMpipe, xf86-video-intel, etc.).
 # Recommended if it works.
 #
-glx-no-rebind-pixmap = true
+# glx-no-rebind-pixmap = false
 
 # Disable the use of damage information. 
 # This cause the whole screen to be redrawn everytime, instead of the part of the screen
