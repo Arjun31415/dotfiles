@@ -1,7 +1,7 @@
 
 (defwidget dashboard []
   (box :class "dashboard-window" :space-evenly "false"  :orientation "h"
-    ; (box :class "dashboard-spacer" 
+    ; (box :class "dashboard-spacer"
     ;      :style {dash ? "padding-left: 0;" : "padding-left: 150px;"}
     ;   )
     (revealer :transition "crossfade" :reveal dash :duration "500ms"
