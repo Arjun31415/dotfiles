@@ -102,8 +102,8 @@ bindsym $super+$alt+c exec rofi -show calc
 bindsym $super+Shift+l lock -i $lockScreenWallpaper
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "brightnessctl set +5%; notify-send 'brightness up'"
+bindsym XF86MonBrightnessDown exec "brightnessctl set -5%; notify-send 'brightness down'"
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -119,8 +119,8 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 
 # music control
 bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl prev
-bindsym XF86AudioPlay exec playerctl toggle
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 
 # Print screen
