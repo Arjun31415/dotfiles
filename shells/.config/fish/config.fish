@@ -1,6 +1,7 @@
 ﻿#!/bin/fish
 export EDITOR=nvim
 set fish_greeting
+set BROWSER "/usr/bin/brave"
 set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set LUA_PATH "/usr/lib/luarocks/*;/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua; $HOME/.luarocks/share/lua/5.4/?.lua;/home/arjun/.luarocks/share/lua/5.4/?/init.lua;/usr/share/lua/5.4/?.lua;"
@@ -127,7 +128,7 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="exa -a | egrep '^\.'" # show only dotfiles
 alias qqq='exit'
 # Replace some more things with better alternatives
-alias cat='bat --style header --style rules --style snip --style changes --style header'
+alias cat='bat --style header --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
 
 # Common use
