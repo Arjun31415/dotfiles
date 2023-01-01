@@ -1,15 +1,12 @@
-﻿#!/bin/fish
+﻿## Set values
+# Hide welcome message
 export EDITOR=nvim
 set fish_greeting
-set BROWSER "/usr/bin/brave"
 set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set LUA_PATH "/usr/lib/luarocks/*;/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua; $HOME/.luarocks/share/lua/5.4/?.lua;/home/arjun/.luarocks/share/lua/5.4/?/init.lua;/usr/share/lua/5.4/?.lua;"
 set LUA_CPATH "/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;$HOME/.luarocks/lib/lua/5.4/?.so"
-# NPM stuff
 set NPM_PACKAGES "$HOME/.npm-packages"
-set PATH $PATH $NPM_PACKAGES/bin
-
 set PATH $PATH "/home/arjun/.cargo/bin"
 set PATH $PATH $SONAR_SCANNER_HOME/bin
 set PATH $PATH "$HOME/.luarocks/bin/"
@@ -17,17 +14,12 @@ set SONAR_SCANNER_OPTS -server
 set PATH $PATH $HOME/.sonar/build-wrapper-linux-x86
 set NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
-# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
-
-#set MANPATH $NPM_PACKAGES/share/man $MANPATH
 # use neovim for vim when possible
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vim="nvim"
 alias vimdiff="nvim -d"
 alias rusty-man="rusty-man --viewer tui"
 alias unset 'set --erase'
-unset MANPATH # delete if you already modified MANPATH elsewhere in your configuration
-set MANPATH "$NPM_PACKAGES/share/man:$(manpath)"
 
 ## Export variable need for qt-theme
 if type qtile >>/dev/null 2>&1
@@ -51,6 +43,10 @@ if test -d ~/.local/bin
         set -p PATH ~/.local/bin
     end
 end
+# Add ~/.npm-packages to path
+if test -d ~/.npm-packages
+    set -p PATH "$HOME/.npm-packages/bin"
+end
 
 # Add depot_tools to PATH
 if test -d ~/Applications/depot_tools
@@ -65,8 +61,10 @@ if status --is-interactive
     source ("/usr/bin/starship" init fish --print-full-init | psub)
 end
 
+
 ## Advanced command-not-found hook
 source /usr/share/doc/find-the-command/ftc.fish
+
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
@@ -126,7 +124,9 @@ alias la='exa -a --color=always --group-directories-first --icons' # all files a
 alias ll='exa -l --color=always --group-directories-first --icons' # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'" # show only dotfiles
+alias ip="ip -color"
 alias qqq='exit'
+
 # Replace some more things with better alternatives
 alias cat='bat --style header --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
@@ -135,12 +135,12 @@ alias cat='bat --style header --style snip --style changes --style header'
 alias grubup="sudo update-grub"
 alias fixpacman="sudo rm /var/lib/pacman/db.lck"
 alias tarnow='tar -acf '
-alias untar='tar -zxvf '
+alias untar='tar -xvf '
 alias wget='wget -c '
 alias rmpkg="sudo pacman -Rdd"
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias upd='/usr/bin/update'
+alias upd='/usr/bin/garuda-update'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -174,13 +174,10 @@ alias cleanup='sudo pacman -Rns (pacman -Qtdq)'
 alias jctl="journalctl -p 3 -xb"
 
 # Recent installed packages
-alias ripk="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
-# garuda theme location-  /usr/share/grub/themes/garuda/
-alias grub-theme-test="grub2-theme-preview --verbose --grub-cfg /boot/grub/grub.cfg"
+alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 
-## Run paleofetch if session is interactive
-if status --is-interactive
-    neofetch
+
+## Run fastfetch if session is interactive
+if status --is-interactive && type -q fastfetch
+    fastfetch --load-config neofetch
 end
-
-# source /usr/share/nvm/init-nvm.sh
