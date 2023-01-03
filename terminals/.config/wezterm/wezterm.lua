@@ -22,7 +22,7 @@ return {
 		inactive_titlebar_bg = "#333333",
 	},
 	window_background_opacity = 0.79,
-	font_size = 12,
+	font_size = 13,
 	harfbuzz_features = { "cv12", "ss05", "cv06", "cv30", "ss03", "clig", "liga" },
 	-- /home/arjun/.local/share/fonts/ttf/Fisa Code Book Regular.ttf, FontConfig
 	font = wezterm.font("Fisa Code", {
@@ -33,7 +33,7 @@ return {
 	font_rules = {
 		{
 			italic = true,
-			font = wezterm.font("Fisa Code", { weight = "Medium", style = "Italic" }),
+			font = wezterm.font("Fisa Code", { weight = "Light", style = "Italic" }),
 		},
 	},
 	term = "xterm-256color",
@@ -44,9 +44,9 @@ return {
 		top = 0,
 		bottom = 0,
 	},
-	color_scheme = "Amarena",
+	color_scheme = "OneDark (base16)",
 	automatically_reload_config = true,
-	colors = require("TabBar"),
+	-- colors = require("TabBar"),
 	adjust_window_size_when_changing_font_size = false,
 	hide_tab_bar_if_only_one_tab = true,
 }

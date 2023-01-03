@@ -4,8 +4,8 @@ export EDITOR=nvim
 set fish_greeting
 set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set LUA_PATH "/usr/lib/luarocks/*;/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua; $HOME/.luarocks/share/lua/5.4/?.lua;/home/arjun/.luarocks/share/lua/5.4/?/init.lua;/usr/share/lua/5.4/?.lua;"
-set LUA_CPATH "/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;$HOME/.luarocks/lib/lua/5.4/?.so"
+set LUA_PATH '/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/root/.luarocks/share/lua/5.4/?.lua;/root/.luarocks/share/lua/5.4/?/init.lua'
+set LUA_CPATH '/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/root/.luarocks/lib/lua/5.4/?.so'
 set NPM_PACKAGES "$HOME/.npm-packages"
 set PATH $PATH "/home/arjun/.cargo/bin"
 set PATH $PATH $SONAR_SCANNER_HOME/bin
