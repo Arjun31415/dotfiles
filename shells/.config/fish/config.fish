@@ -13,7 +13,7 @@ set PATH $PATH "$HOME/.luarocks/bin/"
 set SONAR_SCANNER_OPTS -server
 set PATH $PATH $HOME/.sonar/build-wrapper-linux-x86
 set NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-
+set LC_ALL en_IN.UTF-8
 # use neovim for vim when possible
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vim="nvim"
