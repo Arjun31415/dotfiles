@@ -11,7 +11,7 @@ print_help() {
 }
 
 preload_wallpapers() {
-    wallpaper_dif=$1
+    wallpaper_dir=$1
     wallpapers=$(find "$wallpaper_dir" -type f)
     wallpapers_string=""
     OLDIFS=$IFS
