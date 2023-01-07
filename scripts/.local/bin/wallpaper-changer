@@ -92,6 +92,6 @@ while true; do
     sleep "$interval"
     current_wallpaper=${wallpapers[$idx]}
     wallpaper_cmd="hyprctl hyprpaper wallpaper $monitors,\"$current_wallpaper\""
-    eval $wallpaper_cmd
-    idx=$((($idx + 1) % $n))
+    eval "$wallpaper_cmd"
+    idx=$(((idx + 1) % n))
 done
