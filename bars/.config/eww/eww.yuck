@@ -1,8 +1,5 @@
 (include "./src/yuck/_variables.yuck")
 
-(include "./src/yuck/bar/_widgets.yuck")
-(include "./src/yuck/bar/_windows.yuck")
-
 (include "./src/yuck/dashboard/_widgets.yuck")
 (include "./src/yuck/dashboard/_windows.yuck")
 

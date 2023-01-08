@@ -1,10 +1,26 @@
 (defwindow notification-history
-  :geometry (geometry :x "-1%"
-    :y "-1%"
+  :geometry (geometry :x "100px"
+    :y "20px"
     :width "25%"
     :height "18%"
   :anchor "bottom right")
   :windowtype "dock"
   :stacking "fg"
   :wm-ignore false
+  :monitor 0
   (notification-history))
+(defwindow example
+           :monitor 0
+           :geometry (geometry :x "0%"
+                               :y "20px"
+                               :width "90%"
+                               :height "30px"
+                               :anchor "top center")
+           :stacking "fg"
+           :reserve (struts :distance "40px" :side "top")
+           :windowtype "dock"
+           :wm-ignore false
+    :monitor 0
+
+  "example content")
+

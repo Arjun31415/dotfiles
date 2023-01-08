@@ -64,64 +64,9 @@
           )
         )
       )
-      (box :class "third-row" :orientation "h" :space-evenly "false"
-        (box :class "system-info-scale" :orientation "h" :space-evenly "false"
-          (box :class "ram" :orientation "v"  :space-evenly "false"
-            (label :class "ram-usage" :text "RAM")
-            (circular-progress :class "ram-progress"
-              :value used_ram
-              :thickness 6
-              :clockwise "true"
-              :tooltip "Used RAM: ${used_ram}%"
-              (label :class "ram-icon" :text "")
-            )
-          )
-        )
-        (box :class "system-info" :orientation "h" :space-evenly "false"
-          (box :class "volume" :orientation "v" :space-evenly "false"
-            (label :class "volume-icon" :text "")
-            (scale :min 0
-              :max 100
-              :value volume
-              :orientation "v"
-              :flipped true
-              :tooltip "Volume: ${volume}%"
-              :onchange "amixer sset Master {}%"
-              :class "volbar"
-            )
-          )
-          (box :class "brightness" :orientation "v" :space-evenly "false"
-            (label :class "brightness-icon" :text "")
-            (scale :min 0
-              :max 101
-              :value brightness
-              :orientation "v"
-              :flipped true
-              :tooltip "Brightness: ${brightness}%"
-              :onchange "brightnessctl set {}%"
-              :class "bribar"
-            )
-          )
-          (box :class "mic" :orientation "v" :space-evenly "false"
-            (label :class "mic-icon" :text "")
-            (scale :min 0
-              :max 101
-              :value micro
-              :orientation "v"
-              :flipped true
-              :tooltip "Microphone Volume: ${micro}%"
-              :onchange "amixer  sset Capture {}%"
-              :class "micbar"
-            )
-          )
-        )
-      )
       (box :class "fourth-row" :orientation "h"
            :width "70%"
         (box :class "system-btn" :orientation "h" :space-evenly "true"
-          (button :class {network_status==0 ? "network-btn network__disabled" : "network-btn network__active"}
-                  :tooltip "Network"
-                  :onclick "networkmanager_dmenu &" "${network_icon}")
           ; (button :class "redshift-btn" :style "background-color: ${redshift_status}" :tooltip "Night Light" :onclick "sh ./scripts/getRedshift toggle" {redshift_status})
           (button :class { dnd_status==0 ? "dnd__disabled dnd-btn" : "dnd__active dnd-btn" }
                   :onclick "sh ./scripts/dashActions.sh dnd" :tooltip "Do Not Disturb" "")

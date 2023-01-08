@@ -1,0 +1,8 @@
+#!/bin/bash
+
+while true; do
+    history=$(makoctl history)
+    data=$(echo "$history" | jq ".data[0]" | jq -r tostring)
+    echo "$data"
+    sleep 5
+done

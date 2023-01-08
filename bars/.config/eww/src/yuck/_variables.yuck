@@ -1,5 +1,4 @@
 (defvar eww "usr/bin/eww -c $HOME/.config/eww/")
-(defvar batteryIconIndex 0)
 ;;  DATE VARS
 (defpoll minute :interval "1s"
  "date '+%M'")
@@ -13,19 +12,6 @@
  "date '+%B, %Y'")
 
 ;;  SYSTEM INFO VARS
-(defpoll used_ram :interval "2s"
- "./scripts/getUsedRam")
-(defpoll volume :interval "250ms"
- "amixer sget Master | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll micro :interval "1s"
- "amixer sget Capture | grep 'Left:' | awk -F'[][]' '{ print $2 }' | tr -d '%'")
-(defpoll brightness :interval "500ms"
-  "brightnessctl -m -d amdgpu_bl0 | awk -F, '{print substr($4, 0, length($4)-1)}' | tr -d '%'")
-(defpoll battery_capacity :interval "1s"
- "./scripts/getBattery capacity")
-(defpoll battery_icon :interval "250ms" "./scripts/getBattery icon")
-(defpoll cpu_temperature_icon :interval "500ms" "./scripts/getCpuTemp icon")
-(defpoll cpu_temperature :interval "500ms" "./scripts/getCpuTemp temp");
 ;; MUSIC PLAYER VARS
 (defpoll art :interval "5s"
  "echo \"$HOME/.cache/eww/getart/cover.png\"")
@@ -60,17 +46,6 @@
 (defpoll weather_feels_like :interval "1h"
  "./scripts/getWeather feels_like")
 
-;; CALENDAR VARS
-(defpoll calendar_day :interval "10h"
- "date '+%d'")
-(defpoll calendar_month :interval "10h"
- "./scripts/getCalendarMonth")
-(defpoll calendar_year :interval "10h"
- "date '+%Y'")
-
-;; UTILITY ROW VARS
-(defpoll network_status :interval "1s" "scripts/getNetwork status")
-(defpoll network_icon :interval "1s" "scripts/getNetwork icon")
 ; (defpoll redshift_status :interval "1s" "./scripts/getRedshift color")
 (defpoll dnd_status :interval "1s" "./scripts/dashActions.sh dndstat")
 (defpoll jeff_status :interval "1s" "./scripts/dashActions.sh jstat")
