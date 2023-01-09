@@ -55,3 +55,7 @@
 
 ;; VOLUME INDICATOR VARS
 (defvar volume_muted false)
+
+;; MAKO History
+(deflisten mako-history "scripts/getMakoNotifications")
+; (defpoll mako-history :interval "5s" :initial "[]" "makoctl history | jq '.data[0]' | jq -r tostring")

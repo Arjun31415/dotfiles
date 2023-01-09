@@ -1,7 +1,6 @@
 ; :icon {entry["app-name"]["data"] == "Spotify" ? "../../.cache/dunst/${entry['id']['data']}.png" : (entry["icon_path"]["data"] ?: "../dunst/assets/notification/fallback-notif.png")}
             ; :body '${entry["summary"]["data"]?}\\n${entry["body"]["data"]}'
 
-(deflisten mako-history "scripts/getMakoNotifications")
 (defvar noti false)
 
 (defwidget notification-history []
@@ -9,9 +8,9 @@
     (scroll :class "notification-scroller" :vscroll "true"
       (box :class "notification-history" :orientation "v"
         (for entry in {mako-history}
-          (notification :class 'n'
+          (notification :class 'notification'
             :title {entry.summary.data}
-            :body {"./assets/${entry['app-icon']['data']}"}
+            :body {entry.body.data}
             :icon {entry["app-icon"]["type"]=="s" ? "./assets/${entry['app-icon']['data']}.png" : "${entry['app-icon']['data']}"}
           )
         )
