@@ -1,17 +1,17 @@
-; :icon {entry["app-name"]["data"] == "Spotify" ? "../../.cache/dunst/${entry['id']['data']}.png" : (entry["icon_path"]["data"] ?: "../dunst/assets/notification/fallback-notif.png")}
-            ; :body '${entry["summary"]["data"]?}\\n${entry["body"]["data"]}'
-
+(defpoll dunst-history
+  :interval "3s"
+  `cat ~/.cache/dunst/notifications.json | jq -s reverse`)
 (defvar noti false)
 
 (defwidget notification-history []
-  (revealer :transition "crossfade" :duration "500ms" :reveal noti
+  (revealer :transition "crossfade" :duration "500ms" :reveal true
     (scroll :class "notification-scroller" :vscroll "true"
       (box :class "notification-history" :orientation "v"
-        (for entry in {mako-history}
+        (for entry in {dunst-history}
           (notification :class 'notification'
-            :title {entry.summary.data}
-            :body {entry.body.data}
-            :icon {entry["app-icon"]["type"]=="s" ? "./assets/${entry['app-icon']['data']}.png" : "${entry['app-icon']['data']}"}
+            :title {entry.summary}
+            :body {entry.body}
+            :icon {entry.icon}
           )
         )
       )
@@ -26,17 +26,39 @@
         (label :class "notification-title-text" :halign "start" :text title)
         (box :halign "end"
           (button :class "notification-close"
-            :onclick "${EWW_CMD} update noti=false; ${EWW_CMD} close notification-history;"
-          "")
+                  :onclick "${EWW_CMD} update noti=false; ${EWW_CMD} close notification-history;"
+            ""
+          )
         )
       )
-      (box :class "notification-body" :space-evenly "false" :orientation "h"
-        (box :class "notification-image" :orientation "h" :valign "center" :style "background-image: url('${icon}')")
-        (box :orientation "v"
-          (label :class "notification-body-text" :wrap "true" :limit-width 60 :text body)
+      (box :class "notification-content" :space-evenly "false" :orientation "h"
+        (box :class "notification-body-image" :space-evenly "false" :orientation "h"
+          (box :class "notification-image"
+               :orientation "h"
+               :valign "center"
+               :halign "center"
+               :style "background-image: url('${icon}')"
+               :limit-height 80
+          )
+        )
+        (box :class "notification-body" :orientation "h" :width 330
+          (box :orientation "v"
+            (label :class "notification-body-title"
+                   :wrap true
+                   :text title
+                   :orientation "v"
+            )
+            (label :class "notification-body-text"
+                   :wrap "true"
+                   :halign "center"
+                   :text body
+            )
+          )
         )
       )
     )
   )
 )
+
+
 

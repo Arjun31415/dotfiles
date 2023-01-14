@@ -35,7 +35,7 @@ import os
 import pathlib
 import sys
 import typing
-
+import json
 import dbus
 import utils
 
@@ -159,7 +159,7 @@ class Eavesdropper:
         # BUG: then you'll notice the notifications with value (progress) hint does not get logged
         if "value" in args_list[6]:
             details["progress"] = args_list[6]["value"]
-        print(details)
+        # print(details)
         # execute arbitrary callback and passing details about the current notification.
         self.callback(details)
 
@@ -206,7 +206,13 @@ class Eavesdropper:
 
 
 if __name__ == "__main__":
-    e = Eavesdropper(cache_dir="/tmp")
+
+    def save_to_file(obj):
+        obj["urgency"]=str(obj["urgency"])
+        with open("/home/arjun/.cache/dunst-history.json", "a", encoding="utf-8") as f:
+            json.dump(obj, f, ensure_ascii=True)
+
+    e = Eavesdropper(save_to_file, cache_dir="/tmp")
     e.eavesdrop()
 
 # vim:filetype=python

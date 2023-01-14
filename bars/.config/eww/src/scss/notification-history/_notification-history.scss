@@ -32,23 +32,28 @@
     }
   }
 
+  .notification-content {
+    padding: 0.75em 0em;
+  }
   .notification-body {
     padding: 0.75em 0em;
-    font-size: 14px;
-
+    font-size: 18px;
+    // border: 1px solid green;
+    .notification-body-text {
+      margin: 0em 1rem;
+    }
+  }
+  .notification-body-image {
     .notification-image {
       background-size: cover;
       background-repeat: no-repeat;
       border-radius: 8px;
-      min-height: 64px;
-      min-width: 64px;
+      min-height: 128px;
+      min-width: 128px;
       margin-left: 1em;
+      // border: 2px solid red;
 
       // border: 2px solid $accent;
-    }
-
-    .notification-body-text {
-      margin: 0em 1.5em;
     }
   }
 }
