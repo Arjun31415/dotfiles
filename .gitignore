@@ -6,3 +6,4 @@ mpd/.config/mpd/sticker.sql
 calendars/.config/vdirsyncer/tokens
 calendars/.config/vdirsyncer/status/*
 **/**.log
+**/build/**
