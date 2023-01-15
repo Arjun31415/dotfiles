@@ -1,43 +1,50 @@
 $darker-background: #0b0f10;
-$background-primary: #101415;
+$background-primary: #1a1b26;
 $background-secondary: #131718;
-$background-tertiary: #151a1c;
+$background-tertiary: #7e85a7;
 
-$foreground-primary: #c5c8c9;
-$foreground-secondary: #9fa0a0;
-$foreground-tertiary: #6e7071;
+$foreground-primary: #c0caf5;
+$foreground-secondary: #c0caf5;
+$foreground-tertiary: #c0caf5;
 
-$red: #ee6a70;
-$blue: #7ba5dd;
+$red: #f7768e;
+$blue: #7aa2f7;
 $blue-desaturated: #6791c9;
-$magenta: #cb92f2;
-$green: #96d6b0;
-$yellow: #ffb29b;
+$magenta: #bb9af7;
+$green: #9ece6a;
+$yellow: #e0af68;
+
 $javacafeMagenta: #d7c1ed;
 $javacafeBlue: #bac8ef;
 $javacafeCyan: #c7e5d6;
 // amarena color scheme colors
-$foreground-alt: #8f8f8f;
+$foreground-alt: #c0caf5;
 $module-fg: #1f1f1f;
-$background: #1a2026;
-$foreground: #ffffff;
-$cursorColor: #ffffff;
-$color0: #242d35;
-$color1: #fb6396;
-$color2: #94cf95;
-$color3: #f692b2;
-$color4: #6ec1d6;
-$color5: #cd84c8;
-$color6: #7fe4d2;
-$color7: #ffffff;
-$color8: #526170;
-$color9: #f92d72;
-$color10: #6ccb6e;
-$color11: #f26190;
-$color12: #4cb9d6;
-$color13: #c269bc;
-$color14: #58d6bf;
-$color15: #f4f5f2;
+$background: #1a1b26;
+$foreground: #c0caf5;
+$cursorColor: #c0caf5;
+$color0: #15161E;
+$color1: #f7768e;
+$color2: #9ece6a;
+$color3: #e0af68;
+$color4: #7aa2f7;
+$color5: #bb9af7;
+$color6: #7dcfff;
+$color7: #a9b1d6;
+
+// bright
+$color8: #414868;
+$color9: #f7768e;
+$color10: #9ece6a;
+$color11: #e0af68;
+$color12: #7aa2f7;
+$color13: #bb9af7;
+$color14: #7dcfff;
+$color15: #c0caf5;
+
+$color16: #ff9e64;
+$color17: #db4b4b;
+
 $primary: $color1;
 $secondary: $color4;
 $alternate: $color2;

@@ -23,7 +23,7 @@
 
     .notification-title-text {
       margin: 0em 0em 0em 1em;
-      font-weight: bold;
+      font-weight: 900;
     }
 
     .notification-close {
@@ -34,10 +34,11 @@
 
   .notification-content {
     padding: 0.75em 0em;
+    background-color: $background-primary;
   }
   .notification-body {
     padding: 0.75em 0em;
-    font-size: 18px;
+    font-size: 16px;
     // border: 1px solid green;
     .notification-body-text {
       margin: 0em 1rem;
@@ -55,5 +56,25 @@
 
       // border: 2px solid $accent;
     }
+  }
+  .uc-LOW {
+    background-color: $background-primary;
+  }
+  .uc-NORMAL {
+    background-image: linear-gradient(45deg, $color6, $color4);
+    background-color: $color6;
+    color: $color0;
+  }
+  .uc-CRITICAL {
+    background-image: linear-gradient(45deg, $color1, $color17);
+    color: $color0;
+  }
+  .ut-NORMAL {
+    background-color: $blue-desaturated;
+    color: $color0;
+  }
+  .ut-CRITICAL {
+    background-color: $color16;
+    color: $color0;
   }
 }

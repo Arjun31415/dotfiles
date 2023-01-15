@@ -7,3 +7,6 @@ calendars/.config/vdirsyncer/tokens
 calendars/.config/vdirsyncer/status/*
 **/**.log
 **/build/**
+**/cache/**
+**/__pycache__/
+**/*.pyc

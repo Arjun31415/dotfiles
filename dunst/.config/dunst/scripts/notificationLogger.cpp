@@ -211,7 +211,11 @@ int main(int argc, char *argv[])
 	std::string urgency = argv[5];
 	const Notification *notif =
 		new Notification(appname, summary, body, icon, urgency);
-	notif->dump_to_file("/home/arjun/.cache/dunst/notifications.json");
+	std::string path = std::string(std::getenv("HOME")) + "/.cache/dunst";
+	std::filesystem::create_directories(path);
+
+	notif->dump_to_file(std::string(std::getenv("HOME")) +
+						"/.cache/dunst/notifications.json");
 	delete notif;
 	return 0;
 }

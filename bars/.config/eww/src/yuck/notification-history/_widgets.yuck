@@ -12,6 +12,7 @@
             :title {entry.summary}
             :body {entry.body}
             :icon {entry.icon}
+            :urgency {entry.urgency}
           )
         )
       )
@@ -19,26 +20,25 @@
   )
 )
 
-(defwidget notification [title body icon]
+(defwidget notification [title body icon urgency]
   (eventbox :onrightclick "${EWW_CMD} update noti=false;  ${EWW_CMD} close notification-history;"
     (box :class "notification" :orientation "v" :space-evenly "false"
-      (box :class "notification-title"
+      (box :class "notification-title ut-${urgency}"
         (label :class "notification-title-text" :halign "start" :text title)
         (box :halign "end"
           (button :class "notification-close"
                   :onclick "${EWW_CMD} update noti=false; ${EWW_CMD} close notification-history;"
-            ""
+            ""
           )
         )
       )
-      (box :class "notification-content" :space-evenly "false" :orientation "h"
+      (box :class "notification-content  uc-${urgency}" :space-evenly "false" :orientation "h"
         (box :class "notification-body-image" :space-evenly "false" :orientation "h"
           (box :class "notification-image"
                :orientation "h"
                :valign "center"
                :halign "center"
                :style "background-image: url('${icon}')"
-               :limit-height 80
           )
         )
         (box :class "notification-body" :orientation "h" :width 330
@@ -46,7 +46,6 @@
             (label :class "notification-body-title"
                    :wrap true
                    :text title
-                   :orientation "v"
             )
             (label :class "notification-body-text"
                    :wrap "true"
