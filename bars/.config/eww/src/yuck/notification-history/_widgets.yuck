@@ -6,7 +6,9 @@
 (defwidget notification-history []
   (revealer :transition "crossfade" :duration "500ms" :reveal true
     (scroll :class "notification-scroller" :vscroll "true"
-      (box :class "notification-history" :orientation "v"
+      (box :class "notification-history"
+           :orientation "v"
+           :space-evenly false
         (for entry in {dunst-history}
           (notification :class 'notification'
             :title {entry.summary}
@@ -22,7 +24,9 @@
 
 (defwidget notification [title body icon urgency]
   (eventbox :onrightclick "${EWW_CMD} update noti=false;  ${EWW_CMD} close notification-history;"
-    (box :class "notification" :orientation "v" :space-evenly "false"
+    (box :class "notification"
+         :orientation "v"
+         :space-evenly false
       (box :class "notification-title ut-${urgency}"
         (label :class "notification-title-text" :halign "start" :text title)
         (box :halign "end"
@@ -32,8 +36,10 @@
           )
         )
       )
-      (box :class "notification-content  uc-${urgency}" :space-evenly "false" :orientation "h"
-        (box :class "notification-body-image" :space-evenly "false" :orientation "h"
+      (box :class "notification-content uc-${urgency}"
+           :space-evenly false
+           :orientation "h"
+        (box :class "notification-body-image" :space-evenly false :orientation "h"
           (box :class "notification-image"
                :orientation "h"
                :valign "center"
@@ -42,17 +48,19 @@
           )
         )
         (box :class "notification-body" :orientation "h" :width 330
-          (box :orientation "v"
-            (label :class "notification-body-title"
-                   :wrap true
-                   :text title
+          ; (scroll :vscroll true :hscroll false
+            (box :orientation "v" :space-evenly false
+              (label :class "notification-body-title"
+                     :wrap true
+                     :text title
+              )
+              (label :class "notification-body-text"
+                     :wrap "true"
+                     :halign "center"
+                     :text body
+              )
             )
-            (label :class "notification-body-text"
-                   :wrap "true"
-                   :halign "center"
-                   :text body
-            )
-          )
+          ; )
         )
       )
     )

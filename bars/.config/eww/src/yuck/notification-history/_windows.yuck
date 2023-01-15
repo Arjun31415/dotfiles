@@ -5,9 +5,8 @@
     :height "100%"
   :anchor "bottom right")
   :windowtype "dock"
-  ; :focusable true
-  :stacking "fg"
-  :wm-ignore true
+  :stacking "overlay"
+  :wm-ignore false
   :monitor 0
   (notification-history))
 

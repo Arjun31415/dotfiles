@@ -8,17 +8,15 @@
 
 .notification {
   font-family: "Roboto";
-  background-color: $darker-background;
+  background-color: transparent;
   border-radius: 10px;
   box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.55);
-
   margin-bottom: 1em;
 
   .notification-title {
     background-color: $background-secondary;
     padding: 0.95em 0em 0.75em;
     font-size: 14px;
-
     border-radius: 10px 10px 0px 0px;
 
     .notification-title-text {
@@ -33,15 +31,16 @@
   }
 
   .notification-content {
-    padding: 0.75em 0em;
+    padding: 1rem 0;
     background-color: $background-primary;
+    // border: 2px solid red;
   }
   .notification-body {
     padding: 0.75em 0em;
     font-size: 16px;
-    // border: 1px solid green;
     .notification-body-text {
       margin: 0em 1rem;
+      margin-top: 1rem;
     }
   }
   .notification-body-image {
