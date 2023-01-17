@@ -1,6 +1,6 @@
 configuration {
     /* hover-select: true; */
-    modi: "combi,windowcd,run,drun";
+    modi: "combi,window,run,drun";
     lines: 10;
     columns: 2;
     sort: true;
@@ -57,6 +57,7 @@ configuration {
     me-select-entry: "";
     me-accept-entry: "MousePrimary";
     me-accept-custom: "MouseMiddle";
+    icon-theme: "Papirus";
 }
 * {
     selected-normal-foreground:  rgba ( 52, 60, 72, 100 % );
