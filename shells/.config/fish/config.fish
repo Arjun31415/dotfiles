@@ -20,7 +20,7 @@ alias vim="nvim"
 alias vimdiff="nvim -d"
 alias rusty-man="rusty-man --viewer tui"
 alias unset 'set --erase'
-
+alias neovim="nvim"
 ## Export variable need for qt-theme
 if type qtile >>/dev/null 2>&1
     set -x QT_QPA_PLATFORMTHEME qt5ct
