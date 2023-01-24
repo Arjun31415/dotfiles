@@ -10,3 +10,4 @@ calendars/.config/vdirsyncer/status/*
 **/cache/**
 **/__pycache__/
 **/*.pyc
+**/.cache/**
