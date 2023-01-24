@@ -1,18 +1,9 @@
-#include "gdkmm/screen.h"
-#include "glibmm/refptr.h"
-#include "gtkmm/iconinfo.h"
-#include "gtkmm/overlay.h"
 #include <algorithm>
 #include <boost/algorithm/string.hpp>
 #include <chrono>
-#include <cstdio>
-#include <cstdlib>
 #include <curl/curl.h>
 #include <filesystem>
 #include <fstream>
-#include <gtk/gtk.h>
-#include <gtkmm-3.0/gtkmm.h>
-#include <gtkmm-3.0/gtkmm/icontheme.h>
 #include <iostream>
 #include <nlohmann/json.hpp>
 #include <regex>
@@ -20,21 +11,6 @@
 #include <string>
 #include <unordered_map>
 #include <wordexp.h>
-
-enum Urgency
-{
-	LOW,
-	NORMAL,
-	CRITICAL
-};
-const std::unordered_map<std::string, Urgency> string_to_urgency = {
-	{"LOW", Urgency::LOW},
-	{"NORMAL", Urgency::NORMAL},
-	{"CRITICAL", Urgency::CRITICAL}};
-const std::unordered_map<Urgency, std::string> urgency_to_string = {
-	{Urgency::LOW, "LOW"},
-	{Urgency::NORMAL, "NORMAL"},
-	{Urgency::CRITICAL, "CRITICAL"}};
 
 size_t write_image_to_file(void *ptr, size_t size, size_t nmemb, void *userdata)
 {
@@ -53,9 +29,8 @@ class Notification
 {
 	using string = std::string;
 	using json = nlohmann::json;
-	string appname, summary, body, icon;
+	string appname, summary, body, icon, urgency;
 	string timestamp;
-	Urgency urgency;
 	std::shared_ptr<json> j;
 	string get_spotify_image()
 	{
@@ -120,7 +95,7 @@ class Notification
 				 std::string icon, std::string urgency)
 		: appname(std::move(appname)), summary(std::move(summary)),
 		  body(std::move(body)), icon(std::move(icon)),
-		  urgency(string_to_urgency.at(urgency))
+		  urgency(std::move(urgency))
 	{
 		auto now = std::chrono::system_clock::now();
 		std::time_t now_c = std::chrono::system_clock::to_time_t(now);
@@ -136,46 +111,13 @@ class Notification
 		(*j)["icon"] =
 			(this->appname == "Spotify"
 				 ? get_spotify_image()
-				 : (appname == "VLC media player" ? "vlc"
-												  : get_gtk_icon_path()));
-		(*j)["urgency"] = urgency_to_string.at(this->urgency);
+				 : (appname == "VLC media player" ? "vlc" : this->icon));
+		(*j)["urgency"] = this->urgency;
 		(*j)["timestamp"] = time_str;
 	}
 	std::string to_json() const;
-	std::string get_gtk_icon_path(int size = 128) const;
 	void dump_to_file(std::string fname) const;
 };
-std::string Notification::get_gtk_icon_path(int size) const
-{
-
-	if (size < 16)
-	{
-		auto xdg_config_home = std::getenv("XDG_CONFIG_HOME");
-		if (xdg_config_home == nullptr)
-		{
-			auto config_dir = std::getenv("HOME");
-			return config_dir + std::string("/eww/assets/bell.png");
-		}
-		auto temp = string(xdg_config_home);
-		delete[] xdg_config_home;
-		return temp + std::string("/eww/assets/bell.png");
-	}
-	auto info = gtk_icon_theme_lookup_icon(gtk_icon_theme_get_default(),
-										   this->icon.c_str(), size,
-										   (GtkIconLookupFlags)0);
-
-	if (info)
-	{
-		const gchar *filename = gtk_icon_info_get_filename(info);
-		gchar *res = g_strdup(filename);
-		std::string result(res);
-		g_free(res);
-		g_object_unref(info);
-		return result;
-	}
-	info = nullptr;
-	return get_gtk_icon_path(size / 2);
-}
 
 std::string Notification::to_json() const { return j->dump(); }
 void Notification::dump_to_file(string file_path) const
@@ -201,21 +143,27 @@ void Notification::dump_to_file(string file_path) const
 			"Unable to evaluate environment variable in the path");
 	}
 }
-int main(int argc, char *argv[])
+std::string getEnvVar(std::string const &key)
 {
-	gtk_init(0, NULL);
-	std::string appname = argv[1];
-	std::string summary = argv[2];
-	std::string body = argv[3];
-	std::string icon = argv[4];
-	std::string urgency = argv[5];
+	char *val = getenv(key.c_str());
+	return val == NULL ? std::string("") : std::string(val);
+}
+
+int main(void)
+{
+	std::string appname = getEnvVar("DUNST_APP_NAME");
+	std::string summary = getEnvVar("DUNST_SUMMARY");
+	std::string body = getEnvVar("DUNST_BODY");
+	std::string icon = getEnvVar("DUNST_ICON_PATH");
+	std::string urgency = getEnvVar("DUNST_URGENCY");
 	const Notification *notif =
 		new Notification(appname, summary, body, icon, urgency);
-	std::string path = std::string(std::getenv("HOME")) + "/.cache/dunst";
+	std::string path = std::string(getEnvVar("HOME")) + "/.cache/dunst";
 	std::filesystem::create_directories(path);
 
-	notif->dump_to_file(std::string(std::getenv("HOME")) +
+	notif->dump_to_file(std::string(getEnvVar("HOME")) +
 						"/.cache/dunst/notifications.json");
 	delete notif;
+
 	return 0;
 }
