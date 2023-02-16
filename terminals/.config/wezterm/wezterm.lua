@@ -44,7 +44,7 @@ return {
 		top = 0,
 		bottom = 0,
 	},
-	color_scheme = "OneDark (base16)",
+	color_scheme = "tokyonight",
 	automatically_reload_config = true,
 	-- colors = require("TabBar"),
 	adjust_window_size_when_changing_font_size = false,
