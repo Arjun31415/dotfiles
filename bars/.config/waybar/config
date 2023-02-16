@@ -143,15 +143,15 @@
   "custom/spotify": {
     "format": "<span font_family=\"Material Design Icons\">{icon}</span>{}",
     "escape": true,
-    "return-type": "json",
+    // "return-type": "json",
     "max-length": 40,
-    "on-click": "playerctl -p spotify play-pause",
-    "on-click-right": "killall spotify",
+    "on-click": "playerctl  play-pause",
+    "on-click-right": "expr 1 - $(cat /tmp/waybar_music_mode ) > /tmp/waybar_music_mode",
     "smooth-scrolling-threshold": 5, // This value was tested using a trackpad, it should be lowered if using a mouse.
     "on-scroll-up": "playerctl -p spotify next",
     "on-scroll-down": "playerctl -p spotify previous",
-    "exec": "python $HOME/.config/waybar/scripts/mediaplayer.py",
-    "exec-if": "pgrep spotify"
+    "exec": "$HOME/.config/waybar/scripts/music_bar.sh",
+    "exec-if": "pgrep spotify || pgrep mpd"
   },
   /* "custom/keyboard-layout": {
     "exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
