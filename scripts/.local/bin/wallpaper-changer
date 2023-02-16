@@ -78,7 +78,7 @@ if [ -z "$monitors" ]; then
     echo "Error: -m/--monitors option is required" >&2
     exit 1
 fi
-preload_wallpapers "$wallpaper_dir"
+# preload_wallpapers "$wallpaper_dir"
 # get a list of all the wallpapers in the wallpaper directory
 readarray -d '' wallpapers < <(find "$wallpaper_dir" -type f -print0)
 killall hyprpaper
@@ -88,10 +88,14 @@ disown
 idx=0
 n=${#wallpapers[@]}
 while true; do
-    # wait for the specified interval
-    sleep "$interval"
     current_wallpaper=${wallpapers[$idx]}
     wallpaper_cmd="hyprctl hyprpaper wallpaper $monitors,\"$current_wallpaper\""
     eval "$wallpaper_cmd"
     idx=$(((idx + 1) % n))
+    next_wallpaper=${wallpapers[$idx]}
+    preload_cmd="hyprctl hyprpaper preload \"$next_wallpaper\""
+    eval "$preload_cmd"
+    sleep "$interval"
+    remove_cmd="hyprctl hyprpaper unload \"$current_wallpaper\""
+    eval "$remove_cmd"
 done
