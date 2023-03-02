@@ -15,7 +15,6 @@ include_directories(${CURL_INCLUDE_DIRS})
 
 target_link_libraries(${PROJECT_NAME} ${GTK_LIBRARIES})
 
-# link_directories(${GTKMM_LIBRARY_DIRS})
 target_link_libraries(notificationLogger ${CURL_LIBRARIES})
 target_link_libraries(notificationLogger ${Boost_LIBRARIES})
 add_test(example_test notificationLogger)

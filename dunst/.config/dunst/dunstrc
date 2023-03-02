@@ -353,6 +353,24 @@ appname = "volume"
 summary = "*"
 set_stack_tag = "volume"
 format = "<b>%s</b>\n%b"
+background = "#24283b"
+foreground = "#bb9af7"
+highlight="#9347a8"
+frame_color = "#bb9af7"
+
+script = ""
+
+[brightness]
+appname = "brightness"
+summary = "*"
+set_stack_tag = "brightness"
+format = "<b>%s</b>\n%b"
+background = "#24283b"
+foreground = "#ebcb8b"
+highlight="#ebcb8b"
+frame_color = "#ebcb8b"
+script = ""
+
 
 #[espeak]
 #    summary = "*"

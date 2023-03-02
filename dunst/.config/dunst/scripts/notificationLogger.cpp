@@ -152,6 +152,7 @@ std::string getEnvVar(std::string const &key)
 int main(void)
 {
 	std::string appname = getEnvVar("DUNST_APP_NAME");
+	if (appname == "volume" || appname == "brightness") return 0;
 	std::string summary = getEnvVar("DUNST_SUMMARY");
 	std::string body = getEnvVar("DUNST_BODY");
 	std::string icon = getEnvVar("DUNST_ICON_PATH");
