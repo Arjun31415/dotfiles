@@ -11,3 +11,4 @@ calendars/.config/vdirsyncer/status/*
 **/__pycache__/
 **/*.pyc
 **/.cache/**
+**/.venv/**
