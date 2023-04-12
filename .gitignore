@@ -12,3 +12,4 @@ calendars/.config/vdirsyncer/status/*
 **/*.pyc
 **/.cache/**
 **/.venv/**
+mail/.config/mutt/signature
