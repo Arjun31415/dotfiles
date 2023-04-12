@@ -1,0 +1,11 @@
+text/html; brave %s;
+text/plain; cat %s; copiousoutput
+image/*; icat.sh '%s'; needsterminal;
+video/*; setsid mpv --quiet %s &; copiousoutput
+audio/*; mpv %s ;
+application/pdf; sioyek %s;
+application/pgp-encrypted; gpg -d '%s'; copiousoutput;
+application/pgp-keys; gpg --import '%s'; copiousoutput;
+application/x-subrip; $editor %s ;
+application/octet-stream; icat.sh '%s'; needsterminal;
+
