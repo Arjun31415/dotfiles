@@ -4,17 +4,33 @@
 // @version      1.0
 // @description  Replaces the image with class "title" with a custom image
 // @match https://searxng.nicfab.eu/searxng/*
-// @grant        none
+// @grant        GM_xmlhttpRequest
+// @grant        GM_addElement
+
 // ==/UserScript==
 
 (function () {
   "use strict";
   var element = document.querySelector("#main_index > div > div");
-  element.style.background = "none";
-  element.style.backgroundImage =
-    "url('https://searxng.nicfab.eu/searxng/image_proxy?url=https%3A%2F%2Fstockimages.org%2Fwp-content%2Fuploads%2F2020%2F10%2Fbigstock-Photography-Concept-African-A-381364544.jpg&h=bf142ed8641b33d1e889ca67d5d80c5955465a539ff228136e3860de30c162a5')"; // Remove the background-image property
-  element.style.backgroundSize = "cover"; // Add any additional CSS properties for the new background image
-  element.style.backgroundRepeat = "no-repeat";
-  element.style.backgroundPosition = "center center";
-  element.style.backgroundColor = "#f2f2f2";
+  if (!element) return;
+  GM_xmlhttpRequest({
+    method: "GET",
+    url: "https://raw.githubusercontent.com/Arjun31415/dotfiles/fcaeb4f241b6a4b9634d10eeb45b9cfa61a4a3c2/misc/.config/misc/SearXNG.svg", // Replace the URL with your own custom image URL
+    responseType: "blob",
+    onload: function (response) {
+      var urlCreator = window.URL || window.webkitURL;
+      var imageUrl = urlCreator.createObjectURL(response.response);
+      element.style.backgroundImage = "none";
+      element.style.backgroundSize = "cover"; // Add any additional CSS properties for the new background image
+      element.style.backgroundRepeat = "no-repeat";
+      element.style.backgroundPosition = "center center";
+      element.style.backgroundColor = "transparent";
+      GM_addElement(element, "img", {
+        src: imageUrl,
+        // can use mask in the future so that users can style the image themselves
+        /* style:
+          "   mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);-webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%);", */
+      });
+    },
+  });
 })();
