@@ -1,8 +1,8 @@
 <svg aria-hidden="true" focusable="false" style="width:0;height:0;position:absolute;">
   <linearGradient id="gradient-horizontal">
-    <stop offset="0%" stop-color="var(--color-stop-1)" />
-    <stop offset="50%" stop-color="var(--color-stop-2)" />
-    <stop offset="100%" stop-color="var(--color-stop-3)" />
+    <stop offset="0%" stop-color="#a770ef" />
+    <stop offset="50%" stop-color="#cf8bf3" />
+    <stop offset="100%" stop-color="#fdb99b" />
   </linearGradient>
   <linearGradient id="gradient-vertical" x2="0" y2="1">
     <stop offset="0%" stop-color="var(--color-stop-1)" />
