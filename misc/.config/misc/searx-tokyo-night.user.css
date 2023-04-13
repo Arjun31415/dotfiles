@@ -1,8 +1,8 @@
 /* ==UserStyle==
 @name         Searx Tokyo Night
 @description  The adoption of the Tokyo Night theme for Searx.
-@namespace    https://github.com/Arjun31415/dotfiles/tree/hyprland/misc/.config/mis
-c@author      Arjun31415
+@namespace    https://github.com/Arjun31415/dotfiles/tree/hyprland/misc/.config/misc
+@author      Arjun31415
 @license      GPL-3.0-or-later
 @homepageURL  https://github.com/Arjun31415/dotfiles/tree/hyprland/misc/.config/misc
 @updateURL    https://github.com/Arjun31415/dotfiles/blob/hyprland/misc/.config/misc/searx-tokyo-night.user.css
@@ -39,6 +39,7 @@ url-prefix("https://searx.be/"),
 url-prefix("https://searx.tiekoetter.com/"),
 url-prefix("https://searxng.tiekoetter.com/"),
 url-prefix("https://searxng.nicfab.eu/searxng/"),
+url-prefix("https://searx.garudalinux.org/"),
 domain("/*[[customDomain]]*/") {
   :root {
     --main-bg: /*[[main-bg]]*/ ;
