@@ -1,0 +1,426 @@
+/* ==UserStyle==
+@name         Searx Tokyo Night
+@description  The adoption of the Solarized colour theme for Searx.
+@namespace    codeberg.org/maxigaz/searx-solarized
+@author       maxigaz
+@license      GPL-3.0-or-later
+@homepageURL  https://codeberg.org/maxigaz/searx-solarized
+@updateURL    https://codeberg.org/maxigaz/searx-solarized/raw/master/searx-solarized.user.css
+@version      1.2.2
+
+@preprocessor uso
+@var select main-bg 'Main Background' {
+	"Tokyo Night*": "#1a1b26",
+}
+@var select alt-bg 'Alternative Background' {
+	"Tokyo Night*": "#1a1b26",
+}
+@var select main-text 'Main Text Colour' {
+	"Tokyo Night*": "#c0caf5",
+}
+@var select alt-text 'Alternative Text Colour' {
+	"Tokyo Night*": "#c0caf5",
+}
+@var select border 'Border colour' {
+	"Darker*": "#1a1b26",
+	"Brighter": "#c0caf5",
+	"Custom": "/*[[custom-border]]*\/"
+}
+@var color custom-border "Custom border colour" #586E75
+@var color alert-bg "Warning background" #DC322F
+@var text customDomain "Custom Domain" mywebsite.com
+==/UserStyle== */
+
+@-moz-document url-prefix("https://searx.me"),
+url-prefix("https://search.disroot.org"),
+url-prefix("https://searx.tuxcloud.net/"),
+url-prefix("https://search.privacytools.io/"),
+url-prefix("https://searx.be/"),
+url-prefix("https://searx.tiekoetter.com/"),
+url-prefix("https://searxng.tiekoetter.com/"),
+url-prefix("https://searxng.nicfab.eu/searxng/"),
+domain("/*[[customDomain]]*/") {
+  :root {
+    --main-bg: /*[[main-bg]]*/ ;
+    --alt-bg: /*[[alt-bg]]*/ ;
+
+    --ctone45: #586e75;
+    --ctone50: #657b83;
+    --ctone60: #839496;
+    --ctone65: #93a1a1;
+
+    --main-text: /*[[main-text]]*/ ;
+    --alt-text: /*[[alt-text]]*/ ;
+
+    --yellow: #e0af68;
+    --orange: #ff9e64;
+    --red: #ff7a93;
+    --magenta: #bb9af7;
+    --violet: #6c71c4;
+    --blue: #7da6ff;
+    --cyan: #0db9d7;
+    --green: #b9f27c;
+    --gray: #414868;
+    --black: #15161e;
+    --border: /*[[border]]*/ ;
+    --alert-bg: ; /*[[alert-bg]]*/
+  }
+  .index .title {
+    fill: url("./custom-graident.svg#gradient-horizontal");
+  }
+  #search_header {
+    background-image: linear-gradient(
+      45deg,
+      var(--magenta) 0%,
+      var(--violet) 50%,
+      var(--blue) 100%
+    );
+  }
+  #results,
+  body {
+    background-color: var(--main-bg);
+    color: var(--main-text);
+  }
+
+  body a {
+    color: var(--blue);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--cyan);
+  }
+
+  .searx-navbar {
+    background-color: var(--alt-bg);
+  }
+
+  .searxng-navbar {
+    background-color: var(--alt-bg);
+  }
+
+  .searx-navbar .instance a {
+    color: var(--cyan);
+  }
+
+  .searx-navbar a,
+  .searx-navbar a:hover {
+    color: var(--alt-text);
+  }
+
+  .form-control {
+    background-color: var(--alt-bg);
+    border-color: var(--border);
+    color: var(--alt-text);
+  }
+
+  .form-control::placeholder {
+    background-color: var(--alt-bg);
+    color: var(--alt-text);
+  }
+
+  #q {
+    border-color: var(--border);
+  }
+
+  .btn-default {
+    background-color: var(--alt-bg);
+    border-color: var(--border);
+    color: var(--main-text);
+  }
+
+  #search_form .input-group-btn .btn {
+    border-color: var(--border);
+  }
+
+  #search_form .input-group-btn .btn:hover {
+    background-color: var(--green);
+  }
+
+  .btn-default:hover,
+  .btn-default:focus,
+  .btn-default:active,
+  .btn-default.active,
+  .open > .dropdown-toggle.btn-default {
+    background-color: var(--yellow);
+  }
+
+  .text-muted {
+    color: var(--ctone60);
+  }
+
+  /* ===== Search results ===== */
+
+  /* Time and language */
+
+  select.form-control {
+    border-color: var(--border) !important;
+  }
+
+  /* Sidebar */
+
+  .panel {
+    background-color: var(--main-bg);
+  }
+
+  .panel-default {
+    border-color: var(--border);
+  }
+
+  .infobox .panel-heading {
+    background-color: var(--alt-bg);
+  }
+
+  .panel-default > .panel-heading {
+    border-color: var(--border);
+    color: var(--main-text);
+  }
+
+  .panel-footer {
+    background-color: var(--alt-bg);
+    border-color: var(--border);
+  }
+
+  .table-striped > tbody > tr:nth-child(2n + 1) > td,
+  .table-striped > tbody > tr:nth-child(2n + 1) > th {
+    background-color: var(--alt-bg);
+  }
+
+  .table > thead > tr > th,
+  .table > tbody > tr > th,
+  .table > tfoot > tr > th,
+  .table > thead > tr > td,
+  .table > tbody > tr > td,
+  .table > tfoot > tr > td {
+    border-color: var(--ctone45);
+  }
+
+  .infobox .btn {
+    background-color: var(--green);
+  }
+
+  .panel-default > .panel-heading {
+    background-color: var(--alt-bg);
+  }
+
+  .form-control[disabled],
+  .form-control[readonly],
+  fieldset[disabled] .form-control {
+    background-color: var(--alt-bg);
+  }
+
+  .alert-danger {
+    background-color: var(--alert-bg);
+    border-color: var(--border);
+    color: var(--red);
+  }
+
+  /* Instant answer */
+
+  .well {
+    background-color: var(--alt-bg);
+    border-color: var(--border);
+  }
+
+  /* Result list */
+
+  .result-content {
+    color: var(--main-text);
+  }
+
+  .result_header a {
+    color: var(--alt-text);
+  }
+
+  .result_header a:hover {
+    color: var(--blue);
+  }
+
+  .result_header a:visited {
+    color: var(--violet);
+  }
+
+  .result_header a .highlight {
+    background-color: var(--main-bg);
+  }
+
+  .highlight {
+    background-color: var(--main-bg);
+  }
+
+  .result-default:hover,
+  .result-code:hover,
+  .result-torrent:hover,
+  .result-videos:hover,
+  .result-map:hover {
+    background-color: var(--alt-bg);
+  }
+
+  .external-link {
+    color: var(--green);
+  }
+
+  .label-default {
+    color: var(--ctone65);
+  }
+
+  .text-info {
+    color: var(--blue);
+  }
+
+  a.text-info:hover {
+    color: var(--cyan);
+  }
+
+  /* Search categories */
+
+  .search_categories label,
+  #categories label,
+  .search_categories .input-group-addon,
+  #categories .input-group-addon {
+    color: var(--gray);
+  }
+
+  .search_categories input[type="checkbox"]:checked + label,
+  #categories input[type="checkbox"]:checked + label {
+    border-bottom-color: var(--green);
+    color: var(--gray);
+  }
+
+  .search_categories label:last-child,
+  #categories label:last-child,
+  .search_categories .input-group-addon:last-child,
+  #categories .input-group-addon:last-child {
+    border-right-color: var(--border);
+  }
+
+  /* Time and language */
+
+  .custom-select {
+    border-color: var(--border);
+  }
+
+  .form-control:focus {
+    border-color: var(--blue);
+  }
+
+  /* Images */
+
+  .img-thumbnail {
+    background-color: var(--alt-bg);
+    border-color: var(--border);
+  }
+
+  .modal-wrapper {
+    background-color: var(--main-bg);
+  }
+
+  .modal-header {
+    border-color: var(--border);
+  }
+
+  .modal-footer {
+    border-color: var(--border);
+  }
+
+  .close {
+    color: var(--main-text);
+    text-shadow: none;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: var(--alt-text);
+  }
+
+  /* ===== Preferences ===== */
+
+  /* Navigation */
+
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    background-color: var(--main-bg);
+    color: var(--main-text);
+  }
+
+  .nav-tabs.nav-justified > .active > a,
+  .nav-tabs.nav-justified > .active > a:hover,
+  .nav-tabs.nav-justified > .active > a:focus {
+    border-color: var(--ctone45);
+    border-bottom-color: var(--main-bg);
+  }
+
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    background-color: var(--alt-bg);
+  }
+
+  .nav-tabs > li > a:hover {
+    border-color: var(--ctone45);
+  }
+
+  .nav-tabs.nav-justified > li > a {
+    border-bottom-color: var(--ctone45);
+  }
+
+  /* General */
+
+  .help-block {
+    color: var(--ctone60);
+  }
+
+  /* Engines */
+
+  .table-hover > tbody > tr:hover > td,
+  .table-hover > tbody > tr:hover > th {
+    background-color: var(--ctone45);
+  }
+
+  .table > thead > tr > td.danger,
+  .table > tbody > tr > td.danger,
+  .table > tfoot > tr > td.danger,
+  .table > thead > tr > th.danger,
+  .table > tbody > tr > th.danger,
+  .table > tfoot > tr > th.danger,
+  .table > thead > tr.danger > td,
+  .table > tbody > tr.danger > td,
+  .table > tfoot > tr.danger > td,
+  .table > thead > tr.danger > th,
+  .table > tbody > tr.danger > th,
+  .table > tfoot > tr.danger > th {
+    background-color: var(--orange);
+  }
+
+  .table-hover > tbody > tr > td.danger:hover,
+  .table-hover > tbody > tr > th.danger:hover,
+  .table-hover > tbody > tr.danger:hover > td,
+  .table-hover > tbody > tr:hover > .danger,
+  .table-hover > tbody > tr.danger:hover > th {
+    background-color: var(--red);
+  }
+
+  .onoffswitch-label {
+    border-color: var(--ctone45) !important;
+  }
+
+  .onoffswitch-switch {
+    border-color: var(--ctone45) !important;
+    background-color: var(--cyan);
+  }
+
+  .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    background-color: var(--ctone60);
+  }
+
+  .onoffswitch-inner::before,
+  .onoffswitch-inner::after {
+    background-color: var(--alt-bg);
+  }
+
+  /* ===== About page ===== */
+
+  hr {
+    border-color: var(--ctone45);
+  }
+}
