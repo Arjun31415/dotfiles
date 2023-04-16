@@ -41,8 +41,9 @@ class Notification
 		close(fd);
 		random_name += ".png";
 
-		string cmd = "playerctl metadata mpris:artUrl | sed -e "
-					 "'s/open.spotify.com/i.scdn.co/g'";
+		string cmd =
+			"playerctl --player=spotify metadata mpris:artUrl | sed -e "
+			"'s/open.spotify.com/i.scdn.co/g'";
 		std::shared_ptr<FILE> pipe(popen(cmd.c_str(), "r"), pclose);
 		if (!pipe) throw std::runtime_error("popen() failed!");
 		while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr)
@@ -53,20 +54,20 @@ class Notification
 		string artlink = result;
 
 		FILE *fp;
-		CURLcode res;
 		auto curl = curl_easy_init();
 		if (curl)
 		{
 			fp = fopen(random_name.c_str(), "wb");
 			// printing with bunch of stars to see if there are any trailing
 			// whitespaces
-			// std::cout << artlink << "****";
+			// std::cout << artlink.c_str() << "\n";
 			curl_easy_setopt(curl, CURLOPT_URL, artlink.c_str());
 			curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
 			curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_image_to_file);
 			curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1);
+			curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
 
-			res = curl_easy_perform(curl);
+			CURLcode res = curl_easy_perform(curl);
 			if (res)
 			{
 				throw std::runtime_error("Unable to download image from link " +
@@ -150,6 +151,7 @@ std::string getEnvVar(std::string const &key)
 }
 
 int main(void)
+try
 {
 	std::string appname = getEnvVar("DUNST_APP_NAME");
 	if (appname == "volume" || appname == "brightness") return 0;
@@ -157,6 +159,9 @@ int main(void)
 	std::string body = getEnvVar("DUNST_BODY");
 	std::string icon = getEnvVar("DUNST_ICON_PATH");
 	std::string urgency = getEnvVar("DUNST_URGENCY");
+	std::cout << appname << " " << summary << " " << body << " " << icon << " "
+			  << urgency << std::endl;
+
 	const Notification *notif =
 		new Notification(appname, summary, body, icon, urgency);
 	std::string path = std::string(getEnvVar("HOME")) + "/.cache/dunst";
@@ -167,4 +172,9 @@ int main(void)
 	delete notif;
 
 	return 0;
+}
+catch (const std::exception &e)
+{
+	std::cerr << e.what() << std::endl;
+	return 1;
 }
