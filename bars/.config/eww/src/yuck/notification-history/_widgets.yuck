@@ -27,8 +27,9 @@
     (box :class "notification"
          :orientation "v"
          :space-evenly false
+         :width 1
       (box :class "notification-title ut-${urgency}"
-        (label :class "notification-title-text" :halign "start" :text title)
+        (label :class "notification-title-text" :halign "start" :text title :limit-width 25)
         (box :halign "end"
           (button :class "notification-close"
                   :onclick "${EWW_CMD} update noti=false; ${EWW_CMD} close notification-history;"
@@ -47,16 +48,22 @@
                :style "background-image: url('${icon}')"
           )
         )
-        (box :class "notification-body" :orientation "h" :width 330
+        (box :class "notification-body" :orientation "h" :width 100
           ; (scroll :vscroll true :hscroll false
             (box :orientation "v" :space-evenly false
               (label :class "notification-body-title"
                      :wrap true
+                     ; :xalign 0
+                     :limit-width 35
                      :text title
+                     :haligh "center"
               )
               (label :class "notification-body-text"
-                     :wrap "true"
+                     :wrap true
+                     :xalign 0
+                     ; :limit-width 25
                      :halign "center"
+                     :hexpand true
                      :text body
               )
             )
