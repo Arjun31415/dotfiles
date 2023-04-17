@@ -167,7 +167,7 @@
 
     # Paths to default icons.
     # icon_path = /usr/share/icons/Tokyonight-Dark/:/usr/share/icons/:/usr/share/icons/hicolor
-    # icon_theme = "Tela-circle-dracula-dark,Papirus,Adwaita"
+    icon_theme = "Tokyonight-Dark,Tela-circle-dracula-dark,Papirus,Adwaita"
     enable_recursive_icon_lookup = true
 
     ### History ###
