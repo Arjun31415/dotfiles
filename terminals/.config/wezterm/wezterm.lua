@@ -49,4 +49,6 @@ return {
 	-- colors = require("TabBar"),
 	adjust_window_size_when_changing_font_size = false,
 	hide_tab_bar_if_only_one_tab = true,
+	xcursor_theme = "Catppuccin-Mocha-Maroon-Cursors",
+    -- front_end="OpenGL"
 }
