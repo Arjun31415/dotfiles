@@ -13,3 +13,5 @@ calendars/.config/vdirsyncer/status/*
 **/.cache/**
 **/.venv/**
 mail/.config/mutt/signature
+.cache
+**/*.fifo
