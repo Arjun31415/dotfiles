@@ -5,9 +5,10 @@ name = "pypi"
 
 [packages]
 python-dotenv = "*"
-python-ghost-cursor = "*"
-scipy = "*"
 playwright = "*"
+spotipy = "*"
+sortedcontainers = "*"
+watchdog = "*"
 
 [dev-packages]
 autopep8 = "*"

@@ -1,17 +1,17 @@
-#!/bin/sh
+#!/bin/bash
 
 # Kinda hacky but I will improve this
 PLAYER=$(playerctl -p spotify,%any,firefox,chromium,brave status)
 
 PLAYER_NAME=$(playerctl -l)
-PLAYER_NAME=$(echo $PLAYER_NAME | cut -d '.' -f 1)
+PLAYER_NAME=$(echo "$PLAYER_NAME" | cut -d '.' -f 1)
 
 if [ "$PLAYER" = "Playing" ]; then
-	PLAYERMSG="true"
+    PLAYERMSG="true"
 else
-	echo "Music"
+    echo "Music"
 fi
 
 if [ "$PLAYERMSG" = "true" ]; then
-	echo "Now Playing ⁃ via ${PLAYER_NAME^}"
+    echo "Now Playing ⁃ via ${PLAYER_NAME^}"
 fi

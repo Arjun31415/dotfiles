@@ -29,7 +29,6 @@
  "./scripts/getPlayerStatus")
 (defpoll player_status_text :interval "2s"
  "./scripts/getPlayerStatusText")
-
 ;; LOCK SCREEN VARS
 (defpoll username :interval "24h"
  "whoami")
@@ -47,11 +46,11 @@
  "./scripts/getWeather feels_like")
 
 ; (defpoll redshift_status :interval "1s" "./scripts/getRedshift color")
-(defpoll dnd_status :interval "1s" "./scripts/dashActions.sh dndstat")
-(defpoll jeff_status :interval "1s" "./scripts/dashActions.sh jstat")
+; (defpoll dnd_status :interval "1s" "./scripts/dashActions.sh dndstat")
+; (defpoll jeff_status :interval "1s" "./scripts/dashActions.sh jstat")
 
 ;; NOTIFICATION VARS
-(defpoll github_notifs_count :interval "15min" "scripts/getGithubNotifs")
+(defpoll github_notifs_count :interval "5min" "./scripts/getGithubNotifs")
 
 ;; VOLUME INDICATOR VARS
 (defvar volume_muted false)

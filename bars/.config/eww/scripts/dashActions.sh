@@ -16,7 +16,7 @@ _notify() {
 
 pre_run() {
     # Close eww dashboard
-    sh $HOME/.config/eww/scripts/openDashboard.sh
+    sh "$HOME"/.config/eww/scripts/openDashboard.sh
 }
 
 run_dnd() {

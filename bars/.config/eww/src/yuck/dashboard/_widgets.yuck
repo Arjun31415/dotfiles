@@ -1,42 +1,64 @@
+(defvar play_btn "󰐌")
+(defvar pause_btn "󰏥")
+(defvar next_btn "󰙡")
+(defvar prev_btn "󰙣")
+(deflisten lyrics
+  `./scripts/lyricsWrapper.sh`
+  )
 
 (defwidget dashboard []
   (box :class "dashboard-window" :space-evenly "false"  :orientation "h"
     ; (box :class "dashboard-spacer"
     ;      :style {dash ? "padding-left: 0;" : "padding-left: 150px;"}
     ;   )
-    (revealer :transition "crossfade" :reveal dash :duration "500ms"
+    (revealer :transition "crossfade" :reveal true :duration "500ms"
     (box :class "dashboard-box" :orientation "v" :space-evenly "false"
-      (box :class "first-row" :orientation "h"
-        (box :class "column-one" :orientation "v"
+      (box :class "first-row" :orientation "h" :width 800  :space-evenly "false"
+        (box :class "column-one" :orientation "v" :width 400 :space-evenly "false"
           (box :class "avatar"
-            (box :class "avatar-image")
+            (box :class "avatar-image" :height 200 :width 200
+              )
           )
         )
         (box :class "column-two" :orientation "v" :space-evenly "false"
-          (box :class "weather" :orientation "v" :space-evenly "false"
-            (box :orientation "h" :space-evenly "false"
+          (box :class "weather" :orientation "v" :width 2 :space-evenly "false" :width 180
+            (box :orientation "h"  :space-evenly "false"
               (label :class "weather-desc" :text "${weather_desc}")
             )
             (label :class "weather-temp" :text "${weather_temp}°C (${weather_feels_like}°C)" :halign "start")
           )
-          (box :class "date" :orientation "v" :space-evenly "false"
-            (box :orientation "h" :space-evenly "false"
-              (label :class "weekday" :text "${weekday}" :halign "start")
+          (box :class "date" :orientation "v" :space-evenly "false" :width 2
+            (box :orientation "h" :space-evenly "false" :width 2
+              (label
+                :class "weekday"
+                :wrap "true"
+                :text "${weekday}" :halign "start"
+              )
             )
-            (label :class "monthday" :text "${monthday}" :halign "start")
+            (label
+              :class "monthday"
+              :wrap "true"
+              :text "${monthday}" :halign "start"
+            )
           )
         )
-        (box :class "column-three" :orientation "v" :space-evenly "false"
-          (box :class "github-notifs" :orientation "h" :space-evenly "false"
-            (button :class "github-notifs__btn"
+        (box :class "column-three" :orientation "v" :height 10 :space-evenly "false"
+          (box :class "github-notifs" :orientation "h" :space-evenly "false" :height 10
+            (button :class "github-notifs__btn" :height 10
                     :onclick "brave \"https://github.com/notifications?query=is%3Aunread\" &"
-              (box
-                (label :class "github-notifs__icon" :text "")
-                (label :class "github-notifs__count" :text "${github_notifs_count}")))))
+              (box :height 10 :orientation "h"
+                (label :height 10 :class "github-notifs__icon" :text "")
+                (label :height 10 :class "github-notifs__count" :text "${github_notifs_count}")
+              )
+            )
+          )
+        )
       )
-      (box :class "second-row" :orientation "h"
+      (box :class "second-row" :orientation "h" :height 300 :width 500
         (box :class "music-player" :orientation "h" :space-evenly "false"
-          (box :class "song-art" :style "background-image: url('${art}')" song_art
+          (box :class "song-art" :style "background-image: url('${art}')" :width 350
+               :tooltip '${song_title} - ${song_artist}'
+            song_art
             (box :class "music-info" :orientation "v" :space-evenly "false"
               (box :class "np" :orientation "h" :halign "start"
                 (label :class "now-playing" :text player_status_text)
@@ -44,10 +66,9 @@
               (box :class "title" :orientation "h" :halign "start"
                 (label :class "song-title"
                   :text song_title
-                  :tooltip song_title
                 :limit-width 23)
               )
-              (box :class "artist" :orientation "h" :halign "start"
+              (box :class "artist" :orientation "h" :halign "start" :height 100
                 (label :class "song-artist"
                   :text song_artist
                 :limit-width 35)
@@ -58,25 +79,29 @@
             )
           )
           (box :class "song-controls" :orientation "v"
-            (button :onclick "playerctl previous" "")
-            (button :class "play-pause" :onclick "playerctl play-pause && f=$(eww get player_status);f=$((1-f));eww update player_status=$f  " {player_status==1 ? "" : ""})
-            (button :onclick "playerctl next" "")
+            (button :onclick "playerctl previous" `${prev_btn}`)
+            (button :class "play-pause" :onclick "playerctl play-pause && f=$(eww get player_status);f=$((1-f));eww update player_status=$f  " {player_status==1 ? `${pause_btn}` : `${play_btn}`})
+            (button :onclick "playerctl next" `${next_btn}`)
           )
         )
-      )
-      (box :class "fourth-row" :orientation "h"
-           :width "70%"
-        (box :class "system-btn" :orientation "h" :space-evenly "true"
-          ; (button :class "redshift-btn" :style "background-color: ${redshift_status}" :tooltip "Night Light" :onclick "sh ./scripts/getRedshift toggle" {redshift_status})
-          (button :class { dnd_status==0 ? "dnd__disabled dnd-btn" : "dnd__active dnd-btn" }
-                  :onclick "sh ./scripts/dashActions.sh dnd" :tooltip "Do Not Disturb" "")
-          (button :class { jeff_status==0 ? "jeff-btn jeff__disabled" : "jeff-btn jeff__active"}
-                  :tooltip "Capture Screen"
-                  :onclick "sh ./scripts/dashActions.sh jeff &" "")
+        (box :class "lyrics-container" :orientation "v" :space-evenly "true"
+          (label :class "lyrics" :text '${lyrics}' :limit-width 70 :wrap "true")
         )
       )
+      ; (box :class "fourth-row" :orientation "h"
+      ;      :width "70"
+      ;   (box :class "system-btn" :orientation "h" :space-evenly "true"
+      ;     ; (button :class "redshift-btn" :style "background-color: ${redshift_status}" :tooltip "Night Light" :onclick "sh ./scripts/getRedshift toggle" {redshift_status})
+      ;     (button :class { dnd_status==0 ? "dnd__disabled dnd-btn" : "dnd__active dnd-btn" }
+      ;             :onclick "sh ./scripts/dashActions.sh dnd" :tooltip "Do Not Disturb" "")
+      ;     (button :class { jeff_status==0 ? "jeff-btn jeff__disabled" : "jeff-btn jeff__active"}
+      ;             :tooltip "Capture Screen"
+      ;             :onclick "sh ./scripts/dashActions.sh jeff &" "")
+      ;   )
+      ; )
     )
   )
 )
 )
 (defvar dash false)
+

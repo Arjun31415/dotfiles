@@ -1,5 +1,6 @@
 .dashboard-box {
   .first-row {
+      margin:1em;
     .column-one {
       margin: 0px 1.2em 0em 0px;
 
@@ -8,18 +9,18 @@
           background-image: url("./assets/ayanokji-kiyotaka-avatar.png");
           background-size: cover;
           min-height: 144px;
-          border-radius: 5px;
+          border-radius: 50px;
         }
       }
     }
 
     .column-two {
       margin: 0 0px 0 0;
-
       .date {
         background-color: $background-primary;
-        border-radius: 5px;
+        border-radius: 20px;
         margin-top: 1em;
+        padding: 0.5em 0.5em;
         .weekday {
           color: $foreground-secondary;
           margin-top: 1em;
@@ -35,8 +36,8 @@
       }
       .weather {
         background-color: $background-primary;
-        border-radius: 5px;
-
+        border-radius: 20px;
+        padding: 0.5em 0.5em;
         .weather-desc {
           color: $foreground-secondary;
           margin-left: 1em;
@@ -52,17 +53,30 @@
       }
     }
     .column-three {
-      margin: 5px 5px 5px 10px;
+      .github-notifs {
+        background-color: $background-primary;
+        padding: 1em;
+        border-radius: 20px;
+      }
+      margin: 0px 50px 50px 10px;
       .github-notifs__icon {
         font-size: 24px;
-        font-family: "Material\-Design\-Iconic\-Font";
+        // font-family: "Material\-Design\-Iconic\-Font";
         color: #fff;
       }
+
       .github-notifs__count {
         font-size: 24px;
         font-family: "FantasqueSansMono Nerd Font Mono";
         color: #fff;
-        font-weight: 800;
+        font-weight: 900;
+        margin-left: 15px;
+      }
+      .github-notifs__btn:hover {
+        .github-notifs__count,
+        .github-notifs__icon {
+          color: $foreground-secondary;
+        }
       }
     }
   }

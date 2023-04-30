@@ -1,15 +1,14 @@
 .dashboard-box {
   .second-row {
     .music-player {
-      margin-top: 1em;
       min-height: 140px;
-
+      margin: 1em;
       .song-art {
         background-color: $background-primary;
         background-size: cover;
         background-repeat: no-repeat;
         border-radius: 5px;
-
+        padding: 10px;
         min-width: 248px;
         margin-right: 5px;
 
@@ -40,20 +39,32 @@
 
       .song-controls {
         background-color: $background-primary;
-        padding: 0em 1em;
+        padding-left: 10px;
+        padding-right: 20px;
         margin-left: 10px;
         border-radius: 5px;
 
         button {
-          // font-family: "Material Icons";
-          font-family: "FontAwesome";
+          font-family: "Material Design Icons Desktop";
+          // font-family: "FantasqueSansMono Nerd Font Mono";
+
           // font-family: "Material\-Design\-Iconic\-Font";
-          font-size: 24px;
+          font-size: 34px;
 
           &:hover {
             color: $accent;
           }
         }
+      }
+    }
+    .lyrics-container {
+      background-color: $background-primary;
+      border-radius: 5px;
+      margin: 1rem;
+      .lyrics {
+        font-size: 24px;
+        font-style: italic;
+        font-family: "Indie Flower", cursive;
       }
     }
   }

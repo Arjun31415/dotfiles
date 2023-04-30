@@ -1,10 +1,10 @@
 (defwindow dashboard
-  :geometry (geometry :x "-3%"
-    :y "3%"
-    :width "20%"
-    :height "82%"
+  :geometry (geometry :x "30%"
+    :y "100%"
+    :width "10%"
+    :height "8%"
   :anchor "center right")
   :windowtype "normal"
   :stacking "fg"
-  :wm-ignore false
+  :monitor 0
   (dashboard))
