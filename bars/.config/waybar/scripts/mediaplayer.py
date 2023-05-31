@@ -83,30 +83,6 @@ def init_playerctl_player(manager, name):
     on_metadata(player, player.props.metadata, manager)
 
 
-def init_mpd_player():
-    try:
-        player: MPDClient = MPDClient()
-        player.connect("localhost", 6600)
-        return (True, player)
-    except:
-        return (False, None)
-
-
-def handle_mpd(player: MPDClient):
-    track_info = ""
-    logger.info("Handling MPD")
-
-    while player.idle():
-        songInfo = player.currentsong()
-        track_info = "{artist} - {title}".format(
-            artist=songInfo["artist"], title=songInfo["title"]
-        )
-        state = player.status()["state"]
-        if state != "play" and track_info:
-            track_info = " " + track_info
-        write_output(track_info, None)
-
-
 def signal_handler(sig, frame):
     logger.debug("Received signal to stop, exiting")
     sys.stdout.write("\n")
