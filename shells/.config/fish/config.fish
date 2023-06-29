@@ -1,4 +1,12 @@
-﻿## Set values
+﻿test: Expected a combining operator like '-a' at index 3
+-z 24822 26533 28163 28237
+         ^
+~/.config/fish/config.fish (line 43): 
+if test -z (pgrep ssh-agent)
+   ^
+from sourcing file ~/.config/fish/config.fish
+	called during startup
+## Set values
 # Hide welcome message
 export EDITOR=nvim
 set fish_greeting
@@ -13,7 +21,9 @@ set PATH $PATH "$HOME/.luarocks/bin/"
 set SONAR_SCANNER_OPTS -server
 set PATH $PATH $HOME/.sonar/build-wrapper-linux-x86
 set NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+set PATH $PATH "$HOME/go/bin/"
 set LC_ALL en_IN.UTF-8
+set SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 # use neovim for vim when possible
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 alias vim="nvim"
@@ -35,6 +45,14 @@ set -U __done_notification_urgency_level low
 # Apply .profile: use this to put fish compatible .profile stuff in
 if test -f ~/.fish_profile
     source ~/.fish_profile
+end
+
+
+if test -z (pgrep ssh-agent)
+    eval (ssh-agent -c)
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    set -Ux SSH_AGENT_PID $SSH_AGENT_PID
+    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
 end
 
 # Add ~/.local/bin to PATH
