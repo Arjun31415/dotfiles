@@ -4,6 +4,8 @@
 // @version      1.0
 // @description  Replaces the image with class "title" with a custom image
 // @match https://searxng.nicfab.eu/searxng/*
+// @match https://search.notashelf.dev/*
+
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addElement
 
