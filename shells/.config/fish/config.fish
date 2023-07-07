@@ -1,12 +1,4 @@
-﻿test: Expected a combining operator like '-a' at index 3
--z 24822 26533 28163 28237
-         ^
-~/.config/fish/config.fish (line 43): 
-if test -z (pgrep ssh-agent)
-   ^
-from sourcing file ~/.config/fish/config.fish
-	called during startup
-## Set values
+﻿## Set values
 # Hide welcome message
 export EDITOR=nvim
 set fish_greeting
@@ -49,8 +41,7 @@ end
 
 
 if test -z (pgrep ssh-agent)
-    eval (ssh-agent -c)
-    set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
+    eval (ssh-agent -c | head -n2)
     set -Ux SSH_AGENT_PID $SSH_AGENT_PID
     set -Ux SSH_AUTH_SOCK $SSH_AUTH_SOCK
 end
@@ -199,3 +190,6 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 if status --is-interactive && type -q fastfetch
     fastfetch --load-config neofetch
 end
+
+trap "kill $SSH_AGENT_PID > /dev/null 2> /dev/null" exit
+trap "ssh-agent -k /dev/null 2> /dev/null" exit
