@@ -6,8 +6,8 @@ set VIRTUAL_ENV_DISABLE_PROMPT 1
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set LUA_PATH '/usr/share/lua/5.4/?.lua;/usr/share/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/root/.luarocks/share/lua/5.4/?.lua;/root/.luarocks/share/lua/5.4/?/init.lua'
 set LUA_CPATH '/usr/lib/lua/5.4/?.so;/usr/lib/lua/5.4/loadall.so;./?.so;/root/.luarocks/lib/lua/5.4/?.so'
-set NPM_PACKAGES "$HOME/.npm-packages"
-set PATH $PATH "/home/arjun/.cargo/bin"
+set NPM_PACKAGES "$HOME/.npm-global"
+set PATH $PATH "~/.cargo/bin"
 set PATH $PATH $SONAR_SCANNER_HOME/bin
 set PATH $PATH "$HOME/.luarocks/bin/"
 set SONAR_SCANNER_OPTS -server
@@ -23,6 +23,8 @@ alias vimdiff="nvim -d"
 alias rusty-man="rusty-man --viewer tui"
 alias unset 'set --erase'
 alias neovim="nvim"
+
+source ~/.venv/bin/activate.fish
 ## Export variable need for qt-theme
 if type qtile >>/dev/null 2>&1
     set -x QT_QPA_PLATFORMTHEME qt5ct
@@ -67,12 +69,12 @@ end
 
 ## Starship prompt
 if status --is-interactive
-    source ("/usr/bin/starship" init fish --print-full-init | psub)
+    source ("starship" init fish --print-full-init | psub)
 end
 
 
 ## Advanced command-not-found hook
-source /usr/share/doc/find-the-command/ftc.fish
+# source /usr/share/doc/find-the-command/ftc.fish
 
 
 ## Functions

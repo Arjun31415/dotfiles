@@ -1,12 +1,12 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
-SETUVAR --export SSH_AGENT_PID:51532
+SETUVAR --export SSH_AGENT_PID:1472
 SETUVAR --export SSH_AUTH_SOCK:/run/user/1000/ssh\x2dagent\x2esocket
 SETUVAR ZO_CMD:zo
 SETUVAR Z_CMD:z
-SETUVAR Z_DATA:/home/arjun/\x2elocal/share/z/data
-SETUVAR Z_DATA_DIR:/home/arjun/\x2elocal/share/z
-SETUVAR Z_EXCLUDE:\x5e/home/arjun\x24
+SETUVAR Z_DATA:/home/azazel/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:/home/azazel/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/home/azazel\x24
 SETUVAR __done_min_cmd_duration:10000
 SETUVAR __done_notification_urgency_level:low
 SETUVAR __fish_initialized:3400
