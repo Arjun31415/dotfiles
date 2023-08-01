@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env nix-shell
+#! nix-shell -i bash -p bash
 
 print_help() {
     echo "Usage: wallpaper-changer.sh [-p PATH] [-i INTERVAL] [-h|--help]"
