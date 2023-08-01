@@ -24,7 +24,9 @@ alias rusty-man="rusty-man --viewer tui"
 alias unset 'set --erase'
 alias neovim="nvim"
 
-source ~/.venv/bin/activate.fish
+if test -f ~/.venv/bin/activate.fish
+    source ~/.venv/bin/activate.fish
+end
 ## Export variable need for qt-theme
 if type qtile >>/dev/null 2>&1
     set -x QT_QPA_PLATFORMTHEME qt5ct
@@ -192,6 +194,10 @@ alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
 if status --is-interactive && type -q fastfetch
     fastfetch --load-config neofetch
 end
+if status --is-interactive && type -q neofetch
+    neofetch
+end
+
 
 trap "kill $SSH_AGENT_PID > /dev/null 2> /dev/null" exit
 trap "ssh-agent -k /dev/null 2> /dev/null" exit
