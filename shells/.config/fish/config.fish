@@ -18,8 +18,6 @@ set LC_ALL en_IN.UTF-8
 set SSH_AUTH_SOCK $XDG_RUNTIME_DIR/ssh-agent.socket
 # use neovim for vim when possible
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
-alias vim="nvim"
-alias vimdiff="nvim -d"
 alias rusty-man="rusty-man --viewer tui"
 alias unset 'set --erase'
 alias neovim="nvim"
@@ -176,9 +174,6 @@ alias jctl="journalctl -p 3 -xb"
 if status --is-interactive && type -q fastfetch
     fastfetch --load-config neofetch
 else if status --is-interactive && type -q neofetch
-    neofetch
-end
-if status --is-interactive && type -q neofetch
     neofetch
 end
 
