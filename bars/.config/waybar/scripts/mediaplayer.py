@@ -5,7 +5,6 @@ import sys
 import signal
 import gi
 import json
-from mpd import MPDClient
 import signal
 import sys
 
